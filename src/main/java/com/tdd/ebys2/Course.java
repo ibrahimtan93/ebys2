@@ -20,7 +20,6 @@ public class Course {
     private int finalMark;
     private ArrayList<CourseActivity> activities = new ArrayList();
     private Teacher teacher;
-    private String courseName;
 
     public Course(String name) {
         this.name = name;
@@ -83,7 +82,7 @@ public class Course {
     }
 
     public String getCourseName() {
-        return this.courseName;
+        return this.name;
     }
 
     public String getName() {

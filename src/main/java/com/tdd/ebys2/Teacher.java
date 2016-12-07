@@ -28,4 +28,11 @@ public class Teacher {
         else
             return false;
     }
+
+    public void addActivityToCourse(Course course, CourseActivity activity) throws CourseActivityException {
+        if(this.getName()==course.getTeacherName())
+            course.addActivity(activity);
+        else throw new CourseActivityException("This teacher doesn't teach this course");
+
+    }
 }
