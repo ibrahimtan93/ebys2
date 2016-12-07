@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by prometheus on 12/8/16.
  */
 public class Semester {
-    ArrayList<Course> semesterCourses = new ArrayList<Course>();
+    public ArrayList<Course> semesterCourses = new ArrayList<Course>();
 
 
     public void addSemesterCourses(Course course) {
@@ -18,5 +18,14 @@ public class Semester {
             return true;
         else
             return false;
+    }
+
+
+    public Course getCourseByName(String courseName) {
+        for (Course sc : semesterCourses ){
+            if(courseName == sc.getCourseName())
+                return sc;
+        }
+        return null;
     }
 }
