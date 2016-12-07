@@ -8,7 +8,7 @@ import static org.junit.Assert.*;
  * -TODO View midterm mark #
  * -TODO View final mark #
  * -TODO Normalize viewing course marks #
- * -TODO View course's term mark
+ * -TODO View course's term mark #
  * TODO View a term's grade point avarage
  * TODO View cumulative grade point avarage
  *

@@ -3,12 +3,14 @@ package com.tdd.ebys2;
 /**
  * TODO Make midtermMark private #
  * TODO Make finalMark private #
+ * TODO calculateTermMark = (midtermMark + finalMark)/2 #
  *
  * Created by darthvader on 07.12.2016.
  */
 public class Course {
     private int midtermMark;
     private int finalMark;
+    public String activity;
 
     public int getMidtermMark() {
         return midtermMark;
