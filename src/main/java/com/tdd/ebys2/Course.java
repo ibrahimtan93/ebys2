@@ -27,6 +27,6 @@ public class Course {
     }
 
     public float calculateTermMark() {
-        return 0;
+        return (this.getMidtermMark() + this.getFinalMark())/2;
     }
 }

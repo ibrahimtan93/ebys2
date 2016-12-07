@@ -34,6 +34,6 @@ public class StudentTest {
         course.setMidtermMark(50);
         course.setFinalMark(100);
 
-        assertEquals(75, course.calculateTermMark());
+        assertEquals(75, course.calculateTermMark(), 0.2);
     }
 }
