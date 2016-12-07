@@ -25,4 +25,8 @@ public class Course {
     public void setFinalMark(int finalMark) {
         this.finalMark = finalMark;
     }
+
+    public float calculateTermMark() {
+        return 0;
+    }
 }

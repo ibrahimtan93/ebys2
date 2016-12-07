@@ -26,4 +26,14 @@ public class StudentTest {
         assertEquals(50, course.getMidtermMark());
         assertEquals(100, course.getFinalMark());
     }
+
+    @Test
+    public void viewCourseTermMark(){
+        Student student = new Student();
+        Course course = new Course();
+        course.setMidtermMark(50);
+        course.setFinalMark(100);
+
+        assertEquals(75, course.calculateTermMark());
+    }
 }
