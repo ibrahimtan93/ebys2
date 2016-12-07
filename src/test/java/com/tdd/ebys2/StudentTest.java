@@ -28,7 +28,7 @@ public class StudentTest {
     }
 
     @Test
-    public void viewCourseTermMark(){
+    public void viewCourseTermMark() throws CourseActivityException {
         Student student = new Student();
         Course course = new Course();
         course.setMidtermMark(50);

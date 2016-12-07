@@ -9,7 +9,8 @@ import java.util.ArrayList;
  * TODO Make activiy private #
  * TODO More than one activity --> List #
  * TODO Change activities list to hold CourseActivities #
- * TODO Implement SameCourseActivityException #
+ * TODO Implement CourseActivityException #
+ * TODO Implement InvalidCourseActivityExceoption #
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -34,15 +35,17 @@ public class Course {
         this.finalMark = finalMark;
     }
 
-    public float calculateTermMark() {
+    public float calculateTermMark() throws CourseActivityException {
+        if(this.activityPercentageSum() == 100)
+            throw new CourseActivityException("CourseActivity percentage sum is not 100");
         return (this.getMidtermMark() + this.getFinalMark())/2;
     }
 
-    public void addActivity(CourseActivity activity) throws SameCourseActivityException, InvalidCourseActivityPercentageException {
-        if(this.containsActivity(activity)) throw new SameCourseActivityException("Same CourseActivity Object");
-        if(this.containsActivityByName(activity)) throw new SameCourseActivityException("Same CourseActivity Name");
+    public void addActivity(CourseActivity activity) throws  CourseActivityException {
+        if(this.containsActivity(activity)) throw new CourseActivityException("Same CourseActivity Object");
+        if(this.containsActivityByName(activity)) throw new CourseActivityException("Same CourseActivity Name");
         if(this.activityPercentageSum() + activity.getPercentage() > 100)
-            throw new InvalidCourseActivityPercentageException("CourseActivity percentage sum is more than 100");
+            throw new CourseActivityException("CourseActivity percentage sum is more than 100");
         else this.activities.add(activity);
     }
 
