@@ -16,8 +16,8 @@ public class TeacherTest {
         Teacher teacher = new Teacher();
         Course course = new Course();
 
-        course.activity = "midtermExam";
+        course.setActivity("midtermExam");
 
-        assertEquals("midtermExam", course.activity);
+        assertEquals("midtermExam", course.getActivity());
     }
 }
