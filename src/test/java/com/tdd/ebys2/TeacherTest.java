@@ -6,6 +6,7 @@ import static org.junit.Assert.*;
 /**
  * TODO Specify course's term activities
  * - TODO Term activities = midtermExam, finalExam, homework, presentations, projects
+ * --- TODO More than one activity
  * - TODO Specify the percentage of the activities
  *
  * Created by darthvader on 07.12.2016.
@@ -16,8 +17,9 @@ public class TeacherTest {
         Teacher teacher = new Teacher();
         Course course = new Course();
 
-        course.setActivity("midtermExam");
+        course.addActivity("midtermExam");
+        course.addActivity("finalExam");
 
-        assertEquals("midtermExam", course.getActivity());
+        assertTrue(course.containsActivity("midtermExam"));
     }
 }

@@ -5,6 +5,7 @@ package com.tdd.ebys2;
  * TODO Make finalMark private #
  * TODO calculateTermMark = (midtermMark + finalMark)/2 #
  * TODO Make activiy private #
+ * TODO More than one activity --> List
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -39,5 +40,11 @@ public class Course {
 
     public void setActivity(String activity) {
         this.activity = activity;
+    }
+
+    public void addActivity(String midtermExam) {
+    }
+
+    public boolean containsActivity(String midtermExam) {
     }
 }
