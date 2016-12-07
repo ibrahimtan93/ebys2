@@ -15,6 +15,8 @@ import static org.junit.Assert.*;
  * -----TODO Same Activity Name checking #
  * -----TODO Create SameCourseActivityException class #
  * ---TODO Make sure that all percentages sums up to 100
+ * ---TODO Make sure that if the percentage sum is not 100, do not allow calculation of the course term mark.
+ * -----TODO Create InvalidCourseActivityPercentage class
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -28,8 +30,8 @@ public class TeacherTest {
     }
 
     @Test
-    public void specifyCourseActivities() throws SameCourseActivityException {
-        CourseActivity activity = new CourseActivity("midtermExam", 30);
+    public void specifyCourseActivities() throws SameCourseActivityException, InvalidCourseActivityPercentageException {
+        CourseActivity activity = new CourseActivity("midtermExam", 100);
         course.addActivity(activity);
 
         assertTrue(course.containsActivity(activity));
@@ -37,17 +39,26 @@ public class TeacherTest {
     }
 
     @Test(expected = SameCourseActivityException.class)
-    public void insertCheckSameActivityObject() throws SameCourseActivityException {
-        CourseActivity activity = new CourseActivity("midtermExam", 30);
+    public void insertCheckSameActivityObject() throws SameCourseActivityException, InvalidCourseActivityPercentageException {
+        CourseActivity activity = new CourseActivity("finalExam", 100);
 
         course.addActivity(activity);
         course.addActivity(activity);
     }
 
     @Test(expected = SameCourseActivityException.class)
-    public void insertCheckSameActivityName() throws SameCourseActivityException {
-        CourseActivity activity = new CourseActivity("midterExam", 30);
-        CourseActivity activity2 = new CourseActivity("midterExam", 30);
+    public void insertCheckSameActivityName() throws SameCourseActivityException, InvalidCourseActivityPercentageException {
+        CourseActivity activity = new CourseActivity("midtermExam", 30);
+        CourseActivity activity2 = new CourseActivity("midtermExam", 30);
+
+        course.addActivity(activity);
+        course.addActivity(activity2);
+    }
+
+    @Test(expected = InvalidCourseActivityPercentageException.class)
+    public void insertCheckPercentageSumMoreThan100() throws SameCourseActivityException, InvalidCourseActivityPercentageException {
+        CourseActivity activity = new CourseActivity("midtermExam", 50);
+        CourseActivity activity2 = new CourseActivity("finalExam", 80);
 
         course.addActivity(activity);
         course.addActivity(activity2);

@@ -38,10 +38,18 @@ public class Course {
         return (this.getMidtermMark() + this.getFinalMark())/2;
     }
 
-    public void addActivity(CourseActivity activity) throws SameCourseActivityException{
+    public void addActivity(CourseActivity activity) throws SameCourseActivityException, InvalidCourseActivityPercentageException {
         if(this.containsActivity(activity)) throw new SameCourseActivityException("Same CourseActivity Object");
         if(this.containsActivityByName(activity)) throw new SameCourseActivityException("Same CourseActivity Name");
+        if(this.activityPercentageSum() + activity.getPercentage() > 100)
+            throw new InvalidCourseActivityPercentageException("CourseActivity percentage sum is more than 100");
         else this.activities.add(activity);
+    }
+
+    private int activityPercentageSum() {
+        int sum = 0;
+        for(CourseActivity ca : activities) sum += ca.getPercentage();
+        return sum;
     }
 
     private boolean containsActivityByName(CourseActivity activity) {
