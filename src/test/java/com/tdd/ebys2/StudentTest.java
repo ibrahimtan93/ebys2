@@ -6,7 +6,7 @@ import static org.junit.Assert.*;
 /**
  * TODO View course mark
  * -TODO View midterm mark #
- * -TODO View final mark
+ * -TODO View final mark #
  * TODO View a term's grade point avarage
  * TODO View cumulative grade point avarage
  *
@@ -17,17 +17,17 @@ public class StudentTest {
     public void viewMidtermMark(){
         Student student = new Student();
         Course course = new Course();
-        course.midtermMark = 50;
+        course.setMidtermMark(50);
 
-        assertEquals(50, course.midtermMark);
+        assertEquals(50, course.getMidtermMark());
     }
 
     @Test
     public void viewFinalMark(){
         Student student = new Student();
         Course course = new Course();
-        course.finalMark = 50;
+        course.setFinalMark(100);
 
-        assertEquals(50, course.finalMark);
+        assertEquals(100, course.getFinalMark());
     }
 }
