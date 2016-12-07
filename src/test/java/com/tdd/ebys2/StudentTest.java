@@ -19,7 +19,7 @@ public class StudentTest {
     @Test
     public void viewCourseMark(){
         Student student = new Student();
-        Course course = new Course();
+        Course course = new Course("Name of Course");
         course.setMidtermMark(50);
         course.setFinalMark(100);
 
@@ -30,7 +30,7 @@ public class StudentTest {
     @Test
     public void viewCourseTermMark() throws CourseActivityException {
         Student student = new Student();
-        Course course = new Course();
+        Course course = new Course("Name of Course");
         course.setMidtermMark(50);
         course.setFinalMark(100);
 
