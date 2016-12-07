@@ -15,10 +15,16 @@ import java.util.ArrayList;
  * Created by darthvader on 07.12.2016.
  */
 public class Course {
+    private final String name;
     private int midtermMark;
     private int finalMark;
     private ArrayList<CourseActivity> activities = new ArrayList();
     private Teacher teacher;
+    private String courseName;
+
+    public Course(String name) {
+        this.name = name;
+    }
 
     public int getMidtermMark() {
         return midtermMark;
@@ -69,9 +75,18 @@ public class Course {
 
     public void assignTeacher(Teacher teacher) {
         this.teacher = teacher;
+        teacher.coursesListAdd(this.getCourseName());
     }
 
     public String getTeacherName() {
         return this.teacher.getName();
+    }
+
+    public String getCourseName() {
+        return this.courseName;
+    }
+
+    public String getName() {
+        return name;
     }
 }

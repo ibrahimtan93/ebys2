@@ -18,10 +18,13 @@ public class SemesterTest {
 
     @Test
     public void assignTeacherToCourse(){
-        Course tdd = new Course();
+        Course tdd = new Course("Test Driven Development");
         Teacher teacher = new Teacher("Oguz Dikenelli");
         tdd.assignTeacher(teacher);
         Assert.assertEquals("Oguz Dikenelli",tdd.getTeacherName());
+        Assert.assertTrue(teacher.hasCourse("Test Driven Development"));
+
+
     }
 
 
