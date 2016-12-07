@@ -26,7 +26,7 @@ public class TeacherTest {
     Course course;
     @Before
     public void setup(){
-        teacher = new Teacher();
+        teacher = new Teacher("Name Of Teacher");
         course = new Course();
     }
 

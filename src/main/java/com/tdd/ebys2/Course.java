@@ -18,7 +18,7 @@ public class Course {
     private int midtermMark;
     private int finalMark;
     private ArrayList<CourseActivity> activities = new ArrayList();
-    private String teacher;
+    private Teacher teacher;
 
     public int getMidtermMark() {
         return midtermMark;
@@ -67,11 +67,11 @@ public class Course {
         return this.activities.contains(activity);
     }
 
-    public void assignTeacher(String teacher) {
+    public void assignTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 
-    public String getTeacher() {
-        return teacher;
+    public String getTeacherName() {
+        return this.teacher.getName();
     }
 }
