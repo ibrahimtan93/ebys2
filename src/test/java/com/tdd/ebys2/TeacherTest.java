@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
  * - TODO Specify the percentage of the activities #
  * ---TODO CourseActivity class that holds the activity name and percentage #
  * ---TODO Make sure that same activity cant exist
- * -----TODO Same Activity Object checking
+ * -----TODO Same Activity Object checking #
  * -----TODO Same Activity Name checking
  * -----TODO Create SameCourseActivityException class
  * ---TODO Make sure that all percentages sums up to 100
@@ -28,7 +28,7 @@ public class TeacherTest {
     }
 
     @Test
-    public void specifyCourseActivities(){
+    public void specifyCourseActivities() throws SameCourseActivityException {
         CourseActivity activity = new CourseActivity("midtermExam", 30);
         course.addActivity(activity);
 
@@ -37,7 +37,7 @@ public class TeacherTest {
     }
 
     @Test(expected = SameCourseActivityException.class)
-    public void insertCheckSameActivityObject(){
+    public void insertCheckSameActivityObject() throws SameCourseActivityException {
         CourseActivity activity = new CourseActivity("midtermExam", 30);
 
         course.addActivity(activity);

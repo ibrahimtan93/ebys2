@@ -9,6 +9,7 @@ import java.util.ArrayList;
  * TODO Make activiy private #
  * TODO More than one activity --> List #
  * TODO Change activities list to hold CourseActivities #
+ * TODO Implement SameCourseActivityException #
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -37,8 +38,9 @@ public class Course {
         return (this.getMidtermMark() + this.getFinalMark())/2;
     }
 
-    public void addActivity(CourseActivity activity) {
-        this.activities.add(activity);
+    public void addActivity(CourseActivity activity) throws SameCourseActivityException{
+        if(this.containsActivity(activity)) throw new SameCourseActivityException("Same CourseActivity Object");
+        else this.activities.add(activity);
     }
 
     public boolean containsActivity(CourseActivity activity) {
