@@ -40,7 +40,15 @@ public class Course {
 
     public void addActivity(CourseActivity activity) throws SameCourseActivityException{
         if(this.containsActivity(activity)) throw new SameCourseActivityException("Same CourseActivity Object");
+        if(this.containsActivityByName(activity)) throw new SameCourseActivityException("Same CourseActivity Name");
         else this.activities.add(activity);
+    }
+
+    private boolean containsActivityByName(CourseActivity activity) {
+        for(CourseActivity ca : activities){
+            if(ca.getName().equals(activity.getName())) return true;
+        }
+        return false;
     }
 
     public boolean containsActivity(CourseActivity activity) {
