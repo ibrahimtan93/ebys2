@@ -17,7 +17,7 @@ public class Teacher {
         return name;
     }
 
-    public void coursesListAdd(String courseName) {
+    public void coursesListAdd(Course courseName) {
         courseList.add(courseName);
     }
 

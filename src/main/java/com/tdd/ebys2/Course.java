@@ -11,42 +11,39 @@ import java.util.ArrayList;
  * TODO Change activities list to hold CourseActivities #
  * TODO Implement CourseActivityException #
  * TODO Implement InvalidCourseActivityExceoption #
+ * TODO Big Refactor
+ * TODO Refactor calculateTermMark to fit CourseActivity class
  *
  * Created by darthvader on 07.12.2016.
  */
 public class Course {
     private final String name;
-    private int midtermMark;
-    private int finalMark;
+    private final Teacher teacher;
     private ArrayList<CourseActivity> activities = new ArrayList();
-    private Teacher teacher;
 
-    public Course(String name) {
+    //Change teacher coursesListAdd
+    public Course(String name, Teacher teacher) {
         this.name = name;
+        this.teacher = teacher;
+        this.teacher.coursesListAdd(this);
     }
 
-    public int getMidtermMark() {
-        return midtermMark;
+    public String getCourseName() {
+        return this.name;
     }
 
-    public void setMidtermMark(int midtermMark) {
-        this.midtermMark = midtermMark;
+    public String getTeacherName() {
+        return this.teacher.getName();
     }
 
-    public int getFinalMark() {
-        return finalMark;
-    }
-
-    public void setFinalMark(int finalMark) {
-        this.finalMark = finalMark;
-    }
-
+    //Refactor this to Activities
     public float calculateTermMark() throws CourseActivityException {
         if(this.activityPercentageSum() == 100)
             throw new CourseActivityException("CourseActivity percentage sum is not 100");
         return (this.getMidtermMark() + this.getFinalMark())/2;
     }
 
+    //Bad smell "switch statement" ??
     public void addActivity(CourseActivity activity) throws  CourseActivityException {
         if(this.containsActivity(activity)) throw new CourseActivityException("Same CourseActivity Object");
         if(this.containsActivityByName(activity)) throw new CourseActivityException("Same CourseActivity Name");
@@ -70,22 +67,5 @@ public class Course {
 
     public boolean containsActivity(CourseActivity activity) {
         return this.activities.contains(activity);
-    }
-
-    public void assignTeacher(Teacher teacher) {
-        this.teacher = teacher;
-        teacher.coursesListAdd(this.getCourseName());
-    }
-
-    public String getTeacherName() {
-        return this.teacher.getName();
-    }
-
-    public String getCourseName() {
-        return this.name;
-    }
-
-    public String getName() {
-        return name;
     }
 }
