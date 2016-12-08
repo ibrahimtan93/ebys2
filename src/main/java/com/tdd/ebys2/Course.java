@@ -1,6 +1,10 @@
 package com.tdd.ebys2;
 
+import org.junit.Test;
+
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertTrue;
 
 /**
  * TODO Make midtermMark private #
@@ -12,7 +16,6 @@ import java.util.ArrayList;
  * TODO Implement CourseActivityException #
  * TODO Implement InvalidCourseActivityExceoption #
  * TODO Big Refactor
- * TODO Refactor calculateTermMark to fit CourseActivity class
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -20,7 +23,6 @@ public class Course {
     private final String name;
     private Teacher teacher;
     private ArrayList<CourseActivity> activities = new ArrayList();
-
 
     public Course(String name) { this.name = name; }
 
@@ -32,26 +34,13 @@ public class Course {
         return this.teacher;
     }
 
-    //Change teacher coursesListAdd
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-        this.teacher.coursesListAdd(this);
-    }
+    public void setTeacher(Teacher teacher) { this.teacher = teacher; }
 
-    //Refactor this to Activities
-    public float calculateTermMark() throws CourseActivityException {
-        if(this.activityPercentageSum() == 100)
-            throw new CourseActivityException("CourseActivity percentage sum is not 100");
-        return (this.getMidtermMark() + this.getFinalMark())/2;
-    }
-
-    //Bad smell "switch statement" ??
     public void addActivity(CourseActivity activity) throws  CourseActivityException {
-        if(this.containsActivity(activity)) throw new CourseActivityException("Same CourseActivity Object");
-        if(this.containsActivityByName(activity)) throw new CourseActivityException("Same CourseActivity Name");
+        if(this.containsActivityType(activity)) throw new CourseActivityException("Same type of CourseActivity Object");
         if(this.activityPercentageSum() + activity.getPercentage() > 100)
             throw new CourseActivityException("CourseActivity percentage sum is more than 100");
-        else this.activities.add(activity);
+        this.activities.add(activity);
     }
 
     private int activityPercentageSum() {
@@ -60,16 +49,18 @@ public class Course {
         return sum;
     }
 
-    private boolean containsActivityByName(CourseActivity activity) {
+    public boolean containsActivityType(CourseActivity activity) {
+        String type = activity.getType();
         for(CourseActivity ca : activities){
-            if(ca.getName().equals(activity.getName())) return true;
+            if(ca.getType().equals(type)) return true;
         }
         return false;
     }
 
-    public boolean containsActivity(CourseActivity activity) {
-        return this.activities.contains(activity);
+    //Refactoring needed
+    public float calculateTermMark() throws CourseActivityException {
+        if(this.activityPercentageSum() == 100)
+            throw new CourseActivityException("CourseActivity percentage sum is not 100");
+        return (this.getMidtermMark() + this.getFinalMark())/2;
     }
-
-
 }
