@@ -15,12 +15,14 @@ import static org.junit.Assert.*;
  * TODO View cumulative grade point avarage #
  * TODO Student Enrollment #
  * --TODO Only enroll to current semester courses, semester is a container class
+ * --TODO Enrollment refactor for semester
  *
  * Created by darthvader on 07.12.2016.
  */
 public class StudentTest {
     private Student student;
     private Course course;
+    private Semester semester;
 
     @Before
     public void setup() throws CourseActivityException {
@@ -28,12 +30,19 @@ public class StudentTest {
         course = new Course("TDD");
         course.addActivity(CourseActivity.midtermExam(40));
         course.addActivity(CourseActivity.finalExam(60));
+
+        semester = new Semester();
+        semester.addCourse(course);
     }
 
     @Test
     public void enrollmentTest(){
-        student.enroll(course);
+
+
+        student.enroll(semester.getCourse("TDD"));
 
         assertTrue(student.isEnrolled(course));
     }
+
+
 }

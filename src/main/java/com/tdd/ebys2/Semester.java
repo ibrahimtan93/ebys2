@@ -17,6 +17,14 @@ public class Semester {
 
     }
 
+    public Course getCourse(String courseName) {
+        for (Course co : courses){
+            if(co.getCourseName() == courseName)
+                return co;
+        }
+        return null;
+    }
+
     /*public ArrayList<Course> semesterCourses = new ArrayList<Course>();
 
     public void addSemesterCourses(Course course) {
