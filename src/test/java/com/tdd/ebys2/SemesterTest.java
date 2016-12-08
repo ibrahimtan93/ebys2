@@ -10,27 +10,12 @@ import static org.junit.Assert.assertTrue;
 
 /**
  *
- * TODO Every semester some number of courses are opened #
- * TODO A teacher must be assigned to each course. #
- * -TODO Every teacher of courses specifies course activities and their percentages
- * --TODO Only course's teacher can change her/his courses specs#
- * TODO Students enrolls to these courses
  *
  * Created by prometheus on 12/7/16.
  */
 public class SemesterTest {
     Semester thisSemester;
     Course sample;
-
-    @Test
-    public void assignTeacherToCourse(){
-        Course tdd = new Course("Test Driven Development");
-        Teacher teacher = new Teacher("Oguz Dikenelli");
-        tdd.setTeacher(teacher);
-        teacher.addCourse(tdd);
-        assertEquals("Oguz Dikenelli",tdd.getTeacher().getName());
-        assertTrue(teacher.hasCourse(tdd));
-    }
 
     @Before
     public void setup(){

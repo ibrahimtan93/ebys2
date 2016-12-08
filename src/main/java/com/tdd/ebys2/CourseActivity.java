@@ -4,6 +4,7 @@ package com.tdd.ebys2;
  * TODO Refactor this to extract as abstract class for different types of activities #
  * TODO Abstract Factory #
  * TODO type field for typechecking #
+ * TODO include Mark for the activity
  * Created by darthvader on 07.12.2016.
  */
 public abstract class CourseActivity {

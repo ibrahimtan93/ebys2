@@ -11,19 +11,20 @@ import static org.junit.Assert.*;
  * Created by darthvader on 08.12.2016.
  */
 public class CourseActivityTest {
-    private Course course;
-
-    @Before
-    public void setup(){
-        course = new Course("TDD");
-    }
-
     @Test
-    public void courseActivityFactoryTest() throws CourseActivityException {
+    public void courseActivityFactoryTest(){
         CourseActivity activity = CourseActivity.midtermExam(40);
         CourseActivity activity2 = CourseActivity.finalExam(60);
 
         assertEquals("MidtermExam", activity.getType());
         assertEquals("FinalExam", activity2.getType());
+    }
+
+    @Test
+    public void courseActivityMarkTest(){
+        CourseActivity activity = CourseActivity.midtermExam(40);
+        activity.setMark(60);
+
+        assertEquals(60, activity.getMark(), 0.02);
     }
 }

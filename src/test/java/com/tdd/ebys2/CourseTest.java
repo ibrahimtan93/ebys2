@@ -5,7 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * TODO Get all tests related to Courses to this test class
+ * TODO Get all tests related to Courses to this test class #
+ * TODO viewCourseMarkTest refactoring
  *
  * Created by darthvader on 08.12.2016.
  */
@@ -44,8 +45,15 @@ public class CourseTest {
         course.addActivity(activity2);
     }
 
+    @Test
+    public void assignTeacherToCourse(){
+        Teacher teacher = new Teacher("Oguz Dikenelli");
+        course.setTeacher(teacher);
+
+        assertEquals("Oguz Dikenelli",course.getTeacher().getName());
+    }
+
     /*
-    //Refactoring needed
     @Test
     public void viewCourseMarkTest(){
         course.setMidtermMark(50);
@@ -55,6 +63,7 @@ public class CourseTest {
         assertEquals(100, course.getFinalMark());
     }
 
+    /*
     //Refactoring needed
     @Test
     public void calculateTermMarkTest() throws CourseActivityException {

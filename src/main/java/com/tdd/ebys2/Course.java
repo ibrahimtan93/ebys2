@@ -16,6 +16,7 @@ import static org.junit.Assert.assertTrue;
  * TODO Implement CourseActivityException #
  * TODO Implement InvalidCourseActivityExceoption #
  * TODO Big Refactor
+ * TODO A course has a term and a term is
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -56,6 +57,7 @@ public class Course {
         }
         return false;
     }
+
 
     /*
     //Refactoring needed
