@@ -10,10 +10,19 @@ package com.tdd.ebys2;
 public abstract class CourseActivity {
     private final int percentage;
     private final String type;
+    private float mark;
 
     public CourseActivity(int percentage, String type) {
         this.percentage = percentage;
         this.type = type;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
+
+    public double getMark() {
+        return mark;
     }
 
     public int getPercentage() {
@@ -41,6 +50,4 @@ public abstract class CourseActivity {
     public static Project project(int percentage){
         return new Project(percentage);
     }
-
-
 }
