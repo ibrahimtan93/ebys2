@@ -13,7 +13,8 @@ import static org.junit.Assert.*;
  * TODO Transfer Course related tests to CourseTest #
  * TODO View a term's grade point avarage #
  * TODO View cumulative grade point avarage #
- *
+ * TODO Student Enrollment #
+ * --TODO Only enroll to current semester courses, semester is a container class
  *
  * Created by darthvader on 07.12.2016.
  */

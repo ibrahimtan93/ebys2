@@ -6,8 +6,8 @@ import java.util.ArrayList;
  * Created by prometheus on 12/8/16.
  */
 public class Semester {
-    public ArrayList<Course> semesterCourses = new ArrayList<Course>();
 
+    /*public ArrayList<Course> semesterCourses = new ArrayList<Course>();
 
     public void addSemesterCourses(Course course) {
         semesterCourses.add(course);
@@ -27,5 +27,5 @@ public class Semester {
                 return sc;
         }
         return null;
-    }
+    }*/
 }

@@ -9,12 +9,26 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- *
+ * TODO add courses to semester
  *
  * Created by prometheus on 12/7/16.
  */
 public class SemesterTest {
-    Semester thisSemester;
+    private Semester semester;
+    private Course course;
+
+    @Before
+    public void setup() {
+        semester = new Semester();
+        course = new Course("TDD");
+    }
+
+    @Test
+    public void addCourseToSemesterTest(){
+        semester.addCourse(course);
+        assertTrue(semester.hasCourse(course));
+    }
+    /*Semester thisSemester;
     Course sample;
 
     @Before
@@ -43,7 +57,4 @@ public class SemesterTest {
         course2.setTeacher(teacher2);
         teacher.addActivityToCourse(course2,new CourseActivity("Final",50));
     }*/
-
-
-
 }
