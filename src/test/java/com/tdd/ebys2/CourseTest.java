@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
 /**
  * TODO Get all tests related to Courses to this test class #
  * TODO viewCourseMarkTest refactoring
+ * TODO calculateTermGrade
  *
  * Created by darthvader on 08.12.2016.
  */
@@ -74,6 +75,16 @@ public class CourseTest {
         course.getActivity("FinalExam").setMark(100);
 
         assertEquals(80, course.calculateTermMark(), 0.02);
+    }
+
+    @Test
+    public void calculateTermGradeTest() throws CourseActivityException {
+        course.addActivity(CourseActivity.midtermExam(40));
+        course.addActivity(CourseActivity.finalExam(60));
+        course.getActivity("MidtermExam").setMark(50);
+        course.getActivity("FinalExam").setMark(100);
+
+        assertEquals("BB", course.calculateTermGrade());
     }
 
 }

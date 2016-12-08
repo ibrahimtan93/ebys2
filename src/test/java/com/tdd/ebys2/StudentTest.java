@@ -11,13 +11,15 @@ import static org.junit.Assert.*;
  * -TODO Normalize viewing course marks #
  * -TODO View course's term mark #
  * TODO Transfer Course related tests to CourseTest #
- * TODO View a term's grade point avarage #
- * TODO View cumulative grade point avarage #
+ * TODO View a term's grade point average #
+ * TODO View cumulative grade point average #
  * TODO Student Enrollment #
  * --TODO Only enroll to current semester courses, semester is a container class
  * --TODO Enrollment refactor for semester
  * --TODO if semester doesnt have course throw exception
- * ---
+ * --TODO student can only enroll to the available courses
+ * ---TODO Course term is equal or below students term
+ *
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -47,6 +49,7 @@ public class StudentTest {
 
         student.enroll(semester.getCourse("Algorithms"));
     }
+
 
 
 }
