@@ -18,22 +18,24 @@ import java.util.ArrayList;
  */
 public class Course {
     private final String name;
-    private final Teacher teacher;
+    private Teacher teacher;
     private ArrayList<CourseActivity> activities = new ArrayList();
 
-    //Change teacher coursesListAdd
-    public Course(String name, Teacher teacher) {
-        this.name = name;
-        this.teacher = teacher;
-        this.teacher.coursesListAdd(this);
-    }
+
+    public Course(String name) { this.name = name; }
 
     public String getCourseName() {
         return this.name;
     }
 
-    public String getTeacherName() {
-        return this.teacher.getName();
+    public Teacher getTeacher() {
+        return this.teacher;
+    }
+
+    //Change teacher coursesListAdd
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+        this.teacher.coursesListAdd(this);
     }
 
     //Refactor this to Activities
@@ -68,4 +70,6 @@ public class Course {
     public boolean containsActivity(CourseActivity activity) {
         return this.activities.contains(activity);
     }
+
+
 }
