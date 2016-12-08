@@ -53,7 +53,6 @@ public class CourseTest {
         assertEquals("Oguz Dikenelli",course.getTeacher().getName());
     }
 
-
     @Test
     public void viewCourseActivityMarkTest() throws CourseActivityException {
         course.addActivity(CourseActivity.midtermExam(40));
@@ -66,14 +65,15 @@ public class CourseTest {
         assertEquals(100, course.getActivity("FinalExam").getMark(), 0.02);
     }
 
-    /*
-    //Refactoring needed
     @Test
     public void calculateTermMarkTest() throws CourseActivityException {
-        course.setMidtermMark(50);
-        course.setFinalMark(100);
+        course.addActivity(CourseActivity.midtermExam(40));
+        course.addActivity(CourseActivity.finalExam(60));
 
-        assertEquals(75, course.calculateTermMark(), 0.2);
-    }*/
+        course.getActivity("MidtermExam").setMark(50);
+        course.getActivity("FinalExam").setMark(100);
+
+        assertEquals(80, course.calculateTermMark(), 0.02);
+    }
 
 }
