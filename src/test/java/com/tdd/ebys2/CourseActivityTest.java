@@ -5,8 +5,8 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
- * TODO Transfer all CourseActivity related tests to here.
- * TODO 5 types of CourseActivity: MidtermExam, FinalExam, HomeWork, Presentation, Project !!Smelllssss
+ * TODO Transfer all CourseActivity related tests to here. #
+ * TODO 5 types of CourseActivity: MidtermExam, FinalExam, HomeWork, Presentation, Project !!Smelllssss #
  *
  * Created by darthvader on 08.12.2016.
  */
