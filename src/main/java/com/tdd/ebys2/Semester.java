@@ -6,6 +6,16 @@ import java.util.ArrayList;
  * Created by prometheus on 12/8/16.
  */
 public class Semester {
+    private ArrayList<Course> courses = new ArrayList<Course>();
+
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+
+    public boolean hasCourse(Course course) {
+       return courses.contains(course);
+
+    }
 
     /*public ArrayList<Course> semesterCourses = new ArrayList<Course>();
 
