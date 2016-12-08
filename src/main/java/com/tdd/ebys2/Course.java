@@ -65,12 +65,11 @@ public class Course {
         return null;
     }
 
-
-    /*
-    //Refactoring needed
-    public float calculateTermMark() throws CourseActivityException {
-        if(this.activityPercentageSum() == 100)
-            throw new CourseActivityException("CourseActivity percentage sum is not 100");
-        return (this.getMidtermMark() + this.getFinalMark())/2;
-    }*/
+    public float calculateTermMark() {
+        float sum = 0;
+        for(CourseActivity ca : activities){
+            sum += (float)(ca.getMark() * ca.getPercentage())/100;
+        }
+        return sum;
+    }
 }
