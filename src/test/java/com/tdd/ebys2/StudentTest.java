@@ -24,7 +24,7 @@ public class StudentTest {
     @Before
     public void setup() throws CourseActivityException {
         student = new Student();
-        course = new Course();
+        course = new Course("TDD");
         course.addActivity(CourseActivity.midtermExam(40));
         course.addActivity(CourseActivity.finalExam(60));
     }
