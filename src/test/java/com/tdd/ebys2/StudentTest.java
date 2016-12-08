@@ -16,6 +16,8 @@ import static org.junit.Assert.*;
  * TODO Student Enrollment #
  * --TODO Only enroll to current semester courses, semester is a container class
  * --TODO Enrollment refactor for semester
+ * --TODO if semester doesnt have course throw exception
+ * ---
  *
  * Created by darthvader on 07.12.2016.
  */
@@ -35,13 +37,15 @@ public class StudentTest {
         semester.addCourse(course);
     }
 
-    @Test
+    @Test(expected = NullPointerException.class)
     public void enrollmentTest(){
 
 
         student.enroll(semester.getCourse("TDD"));
 
         assertTrue(student.isEnrolled(course));
+
+        student.enroll(semester.getCourse("Algorithms"));
     }
 
 

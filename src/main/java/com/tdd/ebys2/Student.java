@@ -8,7 +8,9 @@ import java.util.ArrayList;
 public class Student {
     private ArrayList<Course> courses = new ArrayList<Course>();
 
-    public void enroll(Course course) {
+    public void enroll(Course course) throws NullPointerException{
+        if (course == null) throw new NullPointerException("Course is not defined.");
+
         this.courses.add(course);
     }
 
