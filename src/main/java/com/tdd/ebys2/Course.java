@@ -58,6 +58,13 @@ public class Course {
         return false;
     }
 
+    public CourseActivity getActivity(String activityType) {
+        for (CourseActivity ca : activities){
+            if(ca.getType().equals(activityType)) return ca;
+        }
+        return null;
+    }
+
 
     /*
     //Refactoring needed

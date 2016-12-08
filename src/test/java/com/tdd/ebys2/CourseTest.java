@@ -62,8 +62,8 @@ public class CourseTest {
         course.getActivity("MidtermExam").setMark(50);
         course.getActivity("FinalExam").setMark(100);
 
-        assertEquals(50, course.getActivity("MidtermExam").getMark());
-        assertEquals(100, course.getActivity("FinalExam").getMark());
+        assertEquals(50, course.getActivity("MidtermExam").getMark(), 0.02);
+        assertEquals(100, course.getActivity("FinalExam").getMark(), 0.02);
     }
 
     /*
