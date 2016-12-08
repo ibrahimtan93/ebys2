@@ -18,50 +18,24 @@ import static org.junit.Assert.*;
  * ---TODO Make sure that if the percentage sum is not 100, do not allow calculation of the course term mark. #
  * -----TODO Create InvalidCourseActivityPercentage class #
  * ---TODO Normalize CourseActivityExceptions #
+ * TODO Transfer all course related tests to CourseTest #
+ * --TODO Change coursesListAdd function to take Course object #
  *
  * Created by darthvader on 07.12.2016.
  */
 public class TeacherTest {
-    Teacher teacher;
-    Course course;
+    private Teacher teacher;
+
     @Before
     public void setup(){
-        teacher = new Teacher("Name Of Teacher");
-        course = new Course("Name of Course");
+        teacher = new Teacher("İbrahim Tan");
     }
 
     @Test
-    public void specifyCourseActivities() throws CourseActivityException {
-        CourseActivity activity = new CourseActivity("midtermExam", 100);
-        course.addActivity(activity);
+    public void addCourseTest(){
+        Course course = new Course("TDD");
+        teacher.addCourse(course);
 
-        assertTrue(course.containsActivity(activity));
-        assertFalse(course.containsActivity(new CourseActivity("finalExam", 60)));
-    }
-
-    @Test(expected = CourseActivityException.class)
-    public void insertCheckSameActivityObject() throws CourseActivityException {
-        CourseActivity activity = new CourseActivity("finalExam", 100);
-
-        course.addActivity(activity);
-        course.addActivity(activity);
-    }
-
-    @Test(expected = CourseActivityException.class)
-    public void insertCheckSameActivityName() throws CourseActivityException {
-        CourseActivity activity = new CourseActivity("midtermExam", 30);
-        CourseActivity activity2 = new CourseActivity("midtermExam", 30);
-
-        course.addActivity(activity);
-        course.addActivity(activity2);
-    }
-
-    @Test(expected = CourseActivityException.class)
-    public void insertCheckPercentageSumMoreThan100() throws CourseActivityException {
-        CourseActivity activity = new CourseActivity("midtermExam", 50);
-        CourseActivity activity2 = new CourseActivity("finalExam", 80);
-
-        course.addActivity(activity);
-        course.addActivity(activity2);
+        assertTrue(teacher.hasCourse(course));
     }
 }

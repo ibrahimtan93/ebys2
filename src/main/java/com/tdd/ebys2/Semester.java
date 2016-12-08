@@ -6,8 +6,26 @@ import java.util.ArrayList;
  * Created by prometheus on 12/8/16.
  */
 public class Semester {
-    public ArrayList<Course> semesterCourses = new ArrayList<Course>();
+    private ArrayList<Course> courses = new ArrayList<Course>();
 
+    public void addCourse(Course course) {
+        courses.add(course);
+    }
+
+    public boolean hasCourse(Course course) {
+       return courses.contains(course);
+
+    }
+
+    public Course getCourse(String courseName) {
+        for (Course co : courses){
+            if(co.getCourseName() == courseName)
+                return co;
+        }
+        return null;
+    }
+
+    /*public ArrayList<Course> semesterCourses = new ArrayList<Course>();
 
     public void addSemesterCourses(Course course) {
         semesterCourses.add(course);
@@ -27,5 +45,5 @@ public class Semester {
                 return sc;
         }
         return null;
-    }
+    }*/
 }
