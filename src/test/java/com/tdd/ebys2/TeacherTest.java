@@ -18,10 +18,24 @@ import static org.junit.Assert.*;
  * ---TODO Make sure that if the percentage sum is not 100, do not allow calculation of the course term mark. #
  * -----TODO Create InvalidCourseActivityPercentage class #
  * ---TODO Normalize CourseActivityExceptions #
- * TODO Transfer all course related tests to CourseTest
- * --TODO Change coursesListAdd function to take Course object
+ * TODO Transfer all course related tests to CourseTest #
+ * --TODO Change coursesListAdd function to take Course object #
  *
  * Created by darthvader on 07.12.2016.
  */
 public class TeacherTest {
+    private Teacher teacher;
+
+    @Before
+    public void setup(){
+        teacher = new Teacher("İbrahim Tan");
+    }
+
+    @Test
+    public void addCourseTest(){
+        Course course = new Course("TDD");
+        teacher.addCourse(course);
+
+        assertTrue(teacher.hasCourse(course));
+    }
 }

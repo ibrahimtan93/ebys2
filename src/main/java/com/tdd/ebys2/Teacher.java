@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Teacher {
     private final String name;
-    private ArrayList<Course> courseList = new ArrayList<Course>();
+    private ArrayList<Course> courses = new ArrayList<Course>();
 
     public Teacher(String name) {
         this.name = name;
@@ -17,22 +17,11 @@ public class Teacher {
         return name;
     }
 
-    public void coursesListAdd(Course course) {
-        courseList.add(course);
+    public void addCourse(Course course) {
+        courses.add(course);
     }
 
-
-    public boolean hasCourse(String courseName) {
-        if(courseList.contains(courseName))
-            return true;
-        else
-            return false;
-    }
-
-    public void addActivityToCourse(Course course, CourseActivity activity) throws CourseActivityException {
-        if(this.getName()==course.getTeacher().getName())
-            course.addActivity(activity);
-        else throw new CourseActivityException("This teacher doesn't teach this course");
-
+    public boolean hasCourse(Course course) {
+        return courses.contains(course);
     }
 }

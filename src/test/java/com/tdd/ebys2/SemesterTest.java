@@ -27,8 +27,9 @@ public class SemesterTest {
         Course tdd = new Course("Test Driven Development");
         Teacher teacher = new Teacher("Oguz Dikenelli");
         tdd.setTeacher(teacher);
+        teacher.addCourse(tdd);
         assertEquals("Oguz Dikenelli",tdd.getTeacher().getName());
-        assertTrue(teacher.hasCourse("Test Driven Development"));
+        assertTrue(teacher.hasCourse(tdd));
     }
 
     @Before

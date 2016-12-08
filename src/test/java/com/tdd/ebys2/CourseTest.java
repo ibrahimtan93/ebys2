@@ -17,7 +17,7 @@ public class CourseTest {
         course = new Course("TDD");
     }
 
-    @Test(expected = CourseActivityException.class)
+    @Test
     public void addActivityTest() throws CourseActivityException {
         CourseActivity activity = CourseActivity.midtermExam(40);
         CourseActivity activity2 = CourseActivity.finalExam(60);
@@ -44,6 +44,7 @@ public class CourseTest {
         course.addActivity(activity2);
     }
 
+    /*
     //Refactoring needed
     @Test
     public void viewCourseMarkTest(){
@@ -61,6 +62,6 @@ public class CourseTest {
         course.setFinalMark(100);
 
         assertEquals(75, course.calculateTermMark(), 0.2);
-    }
+    }*/
 
 }
