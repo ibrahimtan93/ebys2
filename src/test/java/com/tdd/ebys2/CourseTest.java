@@ -154,7 +154,7 @@ public class CourseTest {
         course.addActivity(activityFinal);
 
         //Verification..
-        assertEquals("Failed to calculate correct Grade letter for the Term Mark.", AA", course.calculateTermGrade());
+        assertEquals("Failed to calculate correct Grade letter for the Term Mark.", "AA", course.calculateTermGrade());
     }
 
 }
