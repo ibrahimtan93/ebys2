@@ -8,13 +8,14 @@ import java.util.ArrayList;
 public class Semester {
     private ArrayList<Course> courses = new ArrayList<Course>();
 
+    public ArrayList<Course> getCourses(){ return this.courses; }
+
     public void addCourse(Course course) {
         courses.add(course);
     }
 
     public boolean hasCourse(Course course) {
        return courses.contains(course);
-
     }
 
     public Course getCourse(String courseName) {
@@ -24,26 +25,4 @@ public class Semester {
         }
         return null;
     }
-
-    /*public ArrayList<Course> semesterCourses = new ArrayList<Course>();
-
-    public void addSemesterCourses(Course course) {
-        semesterCourses.add(course);
-    }
-
-    public boolean hasCourse(Course course) {
-        if (semesterCourses.contains(course))
-            return true;
-        else
-            return false;
-    }
-
-
-    public Course getCourseByName(String courseName) {
-        for (Course sc : semesterCourses ){
-            if(courseName == sc.getCourseName())
-                return sc;
-        }
-        return null;
-    }*/
 }

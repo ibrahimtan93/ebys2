@@ -3,6 +3,7 @@ package com.tdd.ebys2;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * TODO View course mark
@@ -26,47 +27,21 @@ import static org.junit.Assert.*;
  * Created by darthvader on 07.12.2016.
  */
 public class StudentTest {
-
-    //**************************************** Fixture Methods *************************************
-    private Student student;
-    private Course course;
-    private Semester semester;
-
-    /**
-     * TODO Use mock objects for setup.
-     *
-     * @throws CourseActivityException
-     */
-    @Before
-    public void setup() throws CourseActivityException {
-        //Fixture setup..
-        semester = new Semester();
-        student = new Student();
-        course = new Course("TDD");
-        course.addActivity(CourseActivity.midtermExam(40));
-        course.addActivity(CourseActivity.finalExam(60));
-        semester.addCourse(course);
-    }
-
-
     //**************************************** Test Methods *************************************
     /**
      * TODO Two different condition. #
      * TODO Use exception pattern for readability. #
      * TODO Assertion Msg smell.  #
+     * TODO Refactor so tests the actual behavior. #
      */
     @Test
     public void enrollmentTest(){
         //Fixture setup..
-        student.enroll(semester.getCourse("TDD"));
+        Student student = new Student();
+        Course course = mock(Course.class);
+        student.enroll(course);
 
         //Verification..
-        try{
-            student.enroll(semester.getCourse("Algorithms"));
-            fail("Failed to throw exception when trying to enroll to a nonexistent course.");
-        }
-        catch (Exception e){
-            assertTrue(e instanceof NullPointerException);
-        }
+        assertEquals("Failed to enroll Student to a Course.", 1, student.getCourses().size());
     }
 }

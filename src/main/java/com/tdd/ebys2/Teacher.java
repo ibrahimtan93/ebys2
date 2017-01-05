@@ -9,6 +9,10 @@ public class Teacher {
     private final String name;
     private ArrayList<Course> courses = new ArrayList<Course>();
 
+    public ArrayList<Course> getCourses() {
+        return this.courses;
+    }
+
     public Teacher(String name) {
         this.name = name;
     }
