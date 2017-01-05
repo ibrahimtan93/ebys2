@@ -3,6 +3,8 @@ package com.tdd.ebys2;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
 
 /**
  * TODO Get all tests related to Courses to this test class #
@@ -10,7 +12,8 @@ import static org.junit.Assert.*;
  * TODO calculateTermGrade
  * TODO Limit CourseActivity percentage between 0 and 100.
  * TODO Create Grade or Mark object.
- *
+ * TODO Change CourseActivity abstract class to interface, and then create Activity classes.
+ * TODO Needs Mark/grade class
  * Created by darthvader on 08.12.2016.
  */
 public class CourseTest {
@@ -94,7 +97,7 @@ public class CourseTest {
     @Test
     public void assignTeacherToCourse(){
         //Fixture setup..
-        Teacher teacher = new Teacher("Oguz Dikenelli");
+        Teacher teacher = mock(Teacher.class);
         course.setTeacher(teacher);
 
         //Verification..
@@ -151,7 +154,7 @@ public class CourseTest {
         course.addActivity(activityFinal);
 
         //Verification..
-        assertEquals("AA", course.calculateTermGrade());
+        assertEquals("Failed to calculate correct Grade letter for the Term Mark.", AA", course.calculateTermGrade());
     }
 
 }
