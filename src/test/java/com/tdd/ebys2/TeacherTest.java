@@ -28,14 +28,19 @@ public class TeacherTest {
 
     @Before
     public void setup(){
+        //Fixture setup..
         teacher = new Teacher("İbrahim Tan");
     }
 
+    /**
+     * TODO Assetion Msg Smell #
+     * TODO Create Course mock object.
+     */
     @Test
     public void addCourseTest(){
         Course course = new Course("TDD");
         teacher.addCourse(course);
 
-        assertTrue(teacher.hasCourse(course));
+        assertTrue("Failed to add course to the teacher.", teacher.hasCourse(course));
     }
 }
