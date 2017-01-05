@@ -1,9 +1,9 @@
 package com.tdd.ebys2;
 
-import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
+
 
 import java.util.ArrayList;
 
@@ -23,42 +23,31 @@ public class SemesterTest {
     @Before
     public void setup() {
         semester = new Semester();
-        course = new Course("TDD");
+        course = mock(Course.class);
+        when(course.getCourseName()).thenReturn("TDD");
+        semester.addCourse(course);
     }
 
     //******************************************** Test Methods *************************************************
 
     /**
      * TODO Assertion Msg. #
-     * TODO Refactor.
+     * TODO Refactor. #
      */
     @Test
     public void addCourseToSemesterTest() {
-        //Fixture setup..
-        //Expected
-        ArrayList<Course> expectedCourses = new ArrayList<Course>();
-        expectedCourses.add(course);
-        //Actual
-        semester.addCourse(course);
-
         //Verification..
-        assertEquals("Failed to add Course to Semester.", expectedCourses, semester.getCourses());
+        assertEquals("Failed to add Course to Semester.", 1, semester.getCourses().size());
     }
 
     @Test
     public void hasCourseTest() {
-        //Fixture setup..
-        semester.addCourse(course);
-
         //Verification..
         assertTrue("Failed to check if the Semester contains the course.", semester.hasCourse(course));
     }
 
     @Test
     public void getCourseTest() {
-        //Fixture setup..
-        semester.addCourse(course);
-
         //Verification..
         assertEquals("Failed to get course from semester.", course, semester.getCourse("TDD"));
     }
