@@ -3,6 +3,7 @@ package com.tdd.ebys2;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
 
 /**
  * TODO Specify course's term activities #
@@ -24,23 +25,17 @@ import static org.junit.Assert.*;
  * Created by darthvader on 07.12.2016.
  */
 public class TeacherTest {
-    private Teacher teacher;
-
-    @Before
-    public void setup(){
-        //Fixture setup..
-        teacher = new Teacher("İbrahim Tan");
-    }
-
     /**
      * TODO Assetion Msg Smell #
-     * TODO Create Course mock object.
      */
     @Test
-    public void addCourseTest(){
-        Course course = new Course("TDD");
+    public void addCourseTest() {
+        //Fixture setup..
+        Teacher teacher = new Teacher("İbrahim Tan");
+        Course course = mock(Course.class);
         teacher.addCourse(course);
 
-        assertTrue("Failed to add course to the teacher.", teacher.hasCourse(course));
+        //Verification..
+        assertEquals("Failed to add course to the teacher.", 1, teacher.getCourses().size());
     }
 }
