@@ -97,7 +97,7 @@ public class CourseTest {
         assertEquals("Failed to calculate Course's term mark.", 92,
                 course.calculateTermMark(), 0.02);
     }
-
+/*
     @Test
     public void calculateTermGradeTest() throws CourseActivityException {
         //Fixture setup..
@@ -110,5 +110,5 @@ public class CourseTest {
         assertEquals("Failed to calculate correct Grade letter for the Term Mark.",
                 "AA", course.calculateTermGrade());
     }
-
+*/
 }

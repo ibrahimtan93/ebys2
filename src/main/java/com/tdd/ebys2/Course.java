@@ -74,17 +74,5 @@ public class Course {
         return sum;
     }
 
-    public String calculateTermGrade() {
-        float mark = this.calculateTermMark();
-        if((mark >= 0) && (mark <= 38)) return "FF";
-        else if (mark<=45) return "FD";
-        else if (mark<=52) return "DD";
-        else if (mark<=59) return "DC";
-        else if (mark<=66) return "CC";
-        else if (mark<=73) return "CB";
-        else if (mark<=80) return "BB";
-        else if (mark<=87) return "BA";
-        else if (mark<=100) return "AA";
-        else return null;
-    }
+
 }
