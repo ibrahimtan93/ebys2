@@ -31,23 +31,23 @@ public abstract class CourseActivity {
 
     public String getType() { return type; }
 
-    public static FinalExam finalExam(int percentage){
+    public static FinalExam FINALEXAM(int percentage){
         return new FinalExam(percentage);
     }
 
-    public static MidtermExam midtermExam(int percentage){
+    public static MidtermExam MIDTERMEXAM(int percentage){
         return new MidtermExam(percentage);
     }
 
-    public static Homework homework(int percentage){
+    public static Homework HOMEWORK(int percentage){
         return new Homework(percentage);
     }
 
-    public static Presentation presentation(int percentage){
+    public static Presentation PRESENTATION(int percentage){
         return new Presentation(percentage);
     }
 
-    public static Project project(int percentage){
+    public static Project PROJECT(int percentage){
         return new Project(percentage);
     }
 }
