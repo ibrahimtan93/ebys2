@@ -1,13 +1,10 @@
 package com.tdd.ebys2;
 
 /**
- * TODO Refactor this to extract as abstract class for different types of activities #
- * TODO Abstract Factory #
- * TODO type field for typechecking #
- * TODO include Mark for the activity
  * Created by darthvader on 07.12.2016.
  */
 public abstract class CourseActivity {
+
     private final int percentage;
     private final String type;
     private float mark;
@@ -31,23 +28,23 @@ public abstract class CourseActivity {
 
     public String getType() { return type; }
 
-    public static FinalExam finalExam(int percentage){
+    public static FinalExam FINALEXAM(int percentage){
         return new FinalExam(percentage);
     }
 
-    public static MidtermExam midtermExam(int percentage){
+    public static MidtermExam MIDTERMEXAM(int percentage){
         return new MidtermExam(percentage);
     }
 
-    public static Homework homework(int percentage){
+    public static Homework HOMEWORK(int percentage){
         return new Homework(percentage);
     }
 
-    public static Presentation presentation(int percentage){
+    public static Presentation PRESENTATION(int percentage){
         return new Presentation(percentage);
     }
 
-    public static Project project(int percentage){
+    public static Project PROJECT(int percentage){
         return new Project(percentage);
     }
 }

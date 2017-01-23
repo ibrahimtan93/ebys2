@@ -7,6 +7,7 @@ import static org.junit.Assert.*;
  * Created by darthvader on 08.12.2016.
  */
 public class CourseActivityTest {
+
     @Test
     public void courseActivityFactoryTest(){
         //Fixture setup..

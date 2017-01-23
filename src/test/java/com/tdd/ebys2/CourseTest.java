@@ -10,11 +10,8 @@ import static org.mockito.Mockito.*;
  * Created by darthvader on 08.12.2016.
  */
 public class CourseTest {
-    //TODO calculateTermGrade
     //TODO Limit CourseActivity percentage between 0 and 100.
     //TODO Create Grade or Mark object.
-    //TODO Change CourseActivity abstract class to interface, and then create Activity classes.
-    //TODO Needs Mark/grade class
     //**************************************** Fixture *************************************
     private Course course;
     private CourseActivity activityMidterm;

@@ -8,17 +8,6 @@ import java.util.Map;
 import static org.junit.Assert.assertTrue;
 
 /**
- * TODO Make midtermMark private #
- * TODO Make finalMark private #
- * TODO calculateTermMark = (midtermMark + finalMark)/2 #
- * TODO Make activiy private #
- * TODO More than one activity --> List #
- * TODO Change activities list to hold CourseActivities #
- * TODO Implement CourseActivityException #
- * TODO Implement InvalidCourseActivityExceoption #
- * TODO Big Refactor
- * TODO A course has a term and a term is
- *
  * Created by darthvader on 07.12.2016.
  */
 public class Course {
