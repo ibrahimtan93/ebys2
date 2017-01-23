@@ -7,16 +7,14 @@ import static org.mockito.Mockito.*;
 
 
 /**
- * TODO Get all tests related to Courses to this test class #
- * TODO viewCourseMarkTest refactoring #
- * TODO calculateTermGrade
- * TODO Limit CourseActivity percentage between 0 and 100.
- * TODO Create Grade or Mark object.
- * TODO Change CourseActivity abstract class to interface, and then create Activity classes.
- * TODO Needs Mark/grade class
  * Created by darthvader on 08.12.2016.
  */
 public class CourseTest {
+    //TODO calculateTermGrade
+    //TODO Limit CourseActivity percentage between 0 and 100.
+    //TODO Create Grade or Mark object.
+    //TODO Change CourseActivity abstract class to interface, and then create Activity classes.
+    //TODO Needs Mark/grade class
     //**************************************** Fixture *************************************
     private Course course;
     private CourseActivity activityMidterm;
@@ -26,22 +24,11 @@ public class CourseTest {
     public void setup(){
         //Fixture setup..
         course = new Course("TDD");
-        activityMidterm = CourseActivity.midtermExam(40);
-        activityFinal= CourseActivity.finalExam(60);
+        activityMidterm = CourseActivity.MIDTERMEXAM(40);
+        activityFinal= CourseActivity.FINALEXAM(60);
     }
 
-
-    /**
-     * TODO Same fixture. Move CourseActivity objects to setup method. #
-     */
     //**************************************** Verification *************************************
-
-    /**
-     *  TODO Use mock objects.
-     *  TODO Assetion msg smell. #
-     *
-     * @throws CourseActivityException
-     */
     @Test
     public void addActivityTest() throws CourseActivityException {
         //Fixture setup..
@@ -51,12 +38,6 @@ public class CourseTest {
         assertTrue("Failed to add CourseActivity to Course.", course.containsActivityType(activityMidterm));
     }
 
-    /**
-     *  TODO Exception pattern #
-     *  TODO Assetion msg smell. #
-     *
-     * @throws CourseActivityException
-     */
     @Test
     public void addActivityTest_sameActivityException() {
         //Verification..
@@ -70,12 +51,6 @@ public class CourseTest {
         }
     }
 
-    /**
-     *  TODO Assetion msg smell. #
-     *  TODO Exception pattern #
-     *
-     * @throws CourseActivityException
-     */
     @Test
     public void addActivityTest_percentageException() {
         //Verification..
@@ -89,11 +64,6 @@ public class CourseTest {
         }
     }
 
-    /**
-     * TODO Assertion Msg. #
-     * TODO Use object equals. #
-     * TODO Use mock objects.
-     */
     @Test
     public void assignTeacherToCourse(){
         //Fixture setup..
@@ -104,13 +74,6 @@ public class CourseTest {
         assertEquals("Failed to assign Teacher to Course.", teacher,course.getTeacher());
     }
 
-    /**
-     *  TODO Refactor fixture setup #
-     *  TODO Assertion Msg. #
-     *  TODO Use mock objects.
-     *
-     * @throws CourseActivityException
-     */
     @Test
     public void viewCourseActivityMarkTest() throws CourseActivityException {
         //Fixture setup..
@@ -118,15 +81,10 @@ public class CourseTest {
         course.addActivity(activityMidterm);
 
         //Verification..
-        assertEquals("Failed to view CourseActivity mark.",50, course.getActivity("MidtermExam").getMark(), 0.02);
+        assertEquals("Failed to view CourseActivity mark.",50,
+                course.getActivity("MidtermExam").getMark(), 0.02);
     }
 
-    /**
-     * TODO Assertion Msg. #
-     * TODO Fixture refactor. #
-     *
-     * @throws CourseActivityException
-     */
     @Test
     public void calculateTermMarkTest() throws CourseActivityException {
         //Fixture setup..
@@ -136,15 +94,10 @@ public class CourseTest {
         course.addActivity(activityFinal);
 
         //Verification..
-        assertEquals("Failed to calculate Course's term mark.", 92, course.calculateTermMark(), 0.02);
+        assertEquals("Failed to calculate Course's term mark.", 92,
+                course.calculateTermMark(), 0.02);
     }
 
-    /**
-     *  TODO Assertion Msg. #
-     *  TODO Fixture refactor. #
-     *
-     * @throws CourseActivityException
-     */
     @Test
     public void calculateTermGradeTest() throws CourseActivityException {
         //Fixture setup..
@@ -154,7 +107,8 @@ public class CourseTest {
         course.addActivity(activityFinal);
 
         //Verification..
-        assertEquals("Failed to calculate correct Grade letter for the Term Mark.", "AA", course.calculateTermGrade());
+        assertEquals("Failed to calculate correct Grade letter for the Term Mark.",
+                "AA", course.calculateTermGrade());
     }
 
 }

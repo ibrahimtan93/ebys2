@@ -10,9 +10,6 @@ import java.util.ArrayList;
 import static org.junit.Assert.*;
 
 /**
- * TODO add courses to semester #
- * TODO
- *
  * Created by prometheus on 12/7/16.
  */
 public class SemesterTest {
@@ -30,10 +27,6 @@ public class SemesterTest {
 
     //******************************************** Test Methods *************************************************
 
-    /**
-     * TODO Assertion Msg. #
-     * TODO Refactor. #
-     */
     @Test
     public void addCourseToSemesterTest() {
         //Verification..
