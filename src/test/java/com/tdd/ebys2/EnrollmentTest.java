@@ -18,7 +18,6 @@ public class EnrollmentTest {
 
         assertTrue("Failed to create enrollment",enrollment instanceof Enrollment);
         verify(student).addEnrollment(enrollment);
-        verify(course).addEnrollment(enrollment);
     }
 
 

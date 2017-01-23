@@ -22,7 +22,7 @@ public class Course {
     private final String name;
     private Teacher teacher;
     private ArrayList<CourseActivity> activities = new ArrayList();
-    private ArrayList<Student> enrolledStudents = new ArrayList<Student> ();
+    //private ArrayList<Student> enrolledStudents = new ArrayList<Student> ();
     private ArrayList<Enrollment> enrollments = new ArrayList<Enrollment>();
 
     public Course(String name) { this.name = name; }
@@ -75,21 +75,26 @@ public class Course {
 
 
     public void enroll(Student student) {
-        this.enrolledStudents.add(student);
+        Enrollment enrollment = new Enrollment(this, student);
+        enrollments.add(enrollment);
+        student.addEnrollment(enrollment);
     }
 
     public ArrayList<Student> getEnrolledStudents(){
-        return this.enrolledStudents;
+        ArrayList<Student> students = new ArrayList<Student>();
+        for (Enrollment e: enrollments){
+            students.add(e.getStudent());
+        }
+
+        return students;
     }
 
     public Student getEnrolledStudent(int number) {
-        for (Student s : enrolledStudents) {
-            if(s.getNumber() == number) return s;
+        for (Enrollment e: enrollments){
+            if(e.getStudent().getNumber() == number) return e.getStudent();
         }
         return null;
     }
 
-    public void addEnrollment(Enrollment enrollment) {
-        enrollments.add(enrollment);
-    }
+
 }

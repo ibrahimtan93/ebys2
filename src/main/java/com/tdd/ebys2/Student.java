@@ -21,11 +21,11 @@ public class Student {
 
     public ArrayList<Course> getCourses() { return this.courses; }
 
-    public void enroll(Course course) throws NullPointerException{
+    /*public void enroll(Course course) throws NullPointerException{
         if (course == null) throw new NullPointerException("Course is not defined.");
         course.enroll(this);
         this.courses.add(course);
-    }
+    }*/
 
     public boolean isEnrolled(Course course) {
         return this.courses.contains(course);

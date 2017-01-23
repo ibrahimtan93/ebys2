@@ -11,7 +11,10 @@ public class Enrollment {
         this.course = course;
         this.student = student;
 
-        this.course.addEnrollment(this);
         this.student.addEnrollment(this);
+    }
+
+    public Student getStudent() {
+        return student;
     }
 }
