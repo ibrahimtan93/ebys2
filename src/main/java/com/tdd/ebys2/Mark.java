@@ -6,7 +6,9 @@ package com.tdd.ebys2;
 public class Mark {
     private final float mark;
 
-    public Mark(float mark) {
+    public Mark(float mark) throws MarkException {
+        if(mark < 0 || mark > 100)
+            throw new MarkException("Invalid Mark Range..! ");
         this.mark = mark;
     }
 
