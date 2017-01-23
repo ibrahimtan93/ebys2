@@ -6,44 +6,30 @@ import java.util.ArrayList;
  * Created by darthvader on 07.12.2016.
  */
 public class Student {
-    private ArrayList<Course> courses;
     private int number;
     private String name;
-    private String surname;
-    private ArrayList<Enrollment> enrollments = new ArrayList<Enrollment>();
+    private ArrayList<Enrollment> enrollments;
 
-    public Student(int number, String name, String surname) {
+    public Student(int number, String name) {
         this.number = number;
         this.name = name;
-        this.surname = surname;
-        this.courses = new ArrayList();
-    }
-
-    public ArrayList<Course> getCourses() { return this.courses; }
-
-    /*public void enroll(Course course) throws NullPointerException{
-        if (course == null) throw new NullPointerException("Course is not defined.");
-        course.enroll(this);
-        this.courses.add(course);
-    }*/
-
-    public boolean isEnrolled(Course course) {
-        return this.courses.contains(course);
+        this.enrollments = new ArrayList<Enrollment>();
     }
 
     public int getNumber() {
         return this.number;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
     public void addEnrollment(Enrollment enrollment) {
         enrollments.add(enrollment);
+    }
+
+    public ArrayList<Enrollment> getEnrollments() { return this.enrollments; }
+
+    public boolean isEnrolled(Course course) {
+        for (Enrollment e : enrollments ) {
+            if(e.getCourse() == course) return true;
+        }
+        return false;
     }
 }

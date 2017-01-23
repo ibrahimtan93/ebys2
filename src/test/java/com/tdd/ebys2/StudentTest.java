@@ -18,29 +18,30 @@ public class StudentTest {
     //**************************************** Setup *************************************
     @Before
     public void setup() {
-        student = new Student(1253, "Murat Can", "Üste");
+        student = new Student(1253, "Murat Can");
         course = mock(Course.class);
     }
 
     //**************************************** Test Methods *************************************
-    /*@Test
-    public void enrollmentTest(){
+    @Test
+    public void addEnrollmentTest(){
+        //Fixture Setup
+        Enrollment enrol = new Enrollment(course, student);
+
         //Exercise
-        student.enroll(course);
+        student.addEnrollment(enrol);
 
         //Verification..
-        assertEquals("Failed to enroll Student to a Course.", 1, student.getCourses().size());
+        assertEquals("Failed to add Enrollment to the Student.", 1, student.getEnrollments().size());
     }
-    */
-    /*
+
     @Test
     public void isEnrolledTest() throws Exception {
-        //Exercise..
-        student.enroll(course);
+        //Fixture Setup
+        Enrollment enrol = new Enrollment(course, student);
+        student.addEnrollment(enrol);
 
-        System.out.println(student.isEnrolled(course));
         //Verify..
         assertTrue("Failed to check if the student is enrolled to a course.", student.isEnrolled(course));
     }
-    */
 }

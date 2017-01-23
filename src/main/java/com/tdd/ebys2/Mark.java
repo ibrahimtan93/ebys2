@@ -12,13 +12,11 @@ public class Mark {
         this.mark = mark;
     }
 
-
     public float getMark() {
         return mark;
     }
 
-    public String calcGrade() {
-
+    public String getGrade() {
             float mark = this.getMark();
             if((mark >= 0) && (mark <= 38)) return "FF";
             else if (mark<=45) return "FD";
@@ -30,6 +28,5 @@ public class Mark {
             else if (mark<=87) return "BA";
             else if (mark<=100) return "AA";
             else return null;
-
     }
 }

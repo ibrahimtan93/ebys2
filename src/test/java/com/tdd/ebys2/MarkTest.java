@@ -25,7 +25,7 @@ public class MarkTest {
     @Test
     public void calculateGradeTest() throws MarkException {
         Mark mark = new Mark(60);
-        assertEquals("Failed to calculate Grade","CC",mark.calcGrade());
+        assertEquals("Failed to calculate Grade","CC",mark.getGrade());
     }
 
     @Test

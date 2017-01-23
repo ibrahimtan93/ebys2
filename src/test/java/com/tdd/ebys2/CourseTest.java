@@ -35,7 +35,7 @@ public class CourseTest {
         course.addActivity(activityMidterm);
 
         //Verification..
-        assertTrue("Failed to add CourseActivity to Course.", course.containsActivityType(activityMidterm));
+        assertEquals("Failed to add CourseActivity to Course.", activityMidterm, course.getActivity("MidtermExam"));
     }
 
     @Test
@@ -98,34 +98,8 @@ public class CourseTest {
                 course.calculateTermMark(), 0.02);
     }
 
-    //TODO List for keeping track of enrolled students to the course #
-    //TODO Enrolling multiple students to course
-    //---TODO Need identifier for students for selecting a student from the list
-    //---TODO Need other identifier for students such as school number for uniqueness.
-    //TODO What about giving notes to more than one students? We need intermediary object.
-    /*@Test
-    public void enrollStudentTest() {
-        //Fixture setup..
-        Student student = mock(Student.class);
-        when(student.getNumber()).thenReturn(anyInt());
-        Student student2 = mock(Student.class);
-        when(student2.getNumber()).thenReturn(anyInt());
-
-        //Exercise..
-        course.enroll(student);
-        course.enroll(student2);
-
-        //Verify..
-        assertEquals("Failed to enroll student to Course.", 2, course.getEnrolledStudents().size());
-        assertEquals("Failed to get student from the enrolled student list", student, course.getEnrolledStudent(student.getNumber()));
-        assertEquals("Failed to get student from the enrolled student list", student2, course.getEnrolledStudent(student2.getNumber()));
-    }
-
-*/
-
-/*
     @Test
-    public void calculateTermGradeTest() throws CourseActivityException {
+    public void calculateTermGradeTest() throws CourseActivityException, MarkException {
         //Fixture setup..
         activityMidterm.setMark(80);
         activityFinal.setMark(100);
@@ -136,5 +110,16 @@ public class CourseTest {
         assertEquals("Failed to calculate correct Grade letter for the Term Mark.",
                 "AA", course.calculateTermGrade());
     }
-*/
+
+    @Test
+    public void enrollTest() {
+        //Fixture setup..
+        Student student = mock(Student.class);
+
+        //Exercise..
+        course.enroll(student);
+
+        //Verify..
+        assertEquals("Failed to add Enrollment to Course.", 1, course.getEnrolledStudents().size());
+    }
 }

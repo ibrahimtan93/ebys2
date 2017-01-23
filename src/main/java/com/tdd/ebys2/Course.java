@@ -5,27 +5,19 @@ import java.util.ArrayList;
 import static org.junit.Assert.assertTrue;
 
 /**
- * TODO Make midtermMark private #
- * TODO Make finalMark private #
- * TODO calculateTermMark = (midtermMark + finalMark)/2 #
- * TODO Make activiy private #
- * TODO More than one activity --> List #
- * TODO Change activities list to hold CourseActivities #
- * TODO Implement CourseActivityException #
- * TODO Implement InvalidCourseActivityExceoption #
- * TODO Big Refactor
- * TODO A course has a term and a term is
- *
  * Created by darthvader on 07.12.2016.
  */
 public class Course {
     private final String name;
     private Teacher teacher;
-    private ArrayList<CourseActivity> activities = new ArrayList();
-    //private ArrayList<Student> enrolledStudents = new ArrayList<Student> ();
-    private ArrayList<Enrollment> enrollments = new ArrayList<Enrollment>();
+    private ArrayList<CourseActivity> activities;
+    private ArrayList<Enrollment> enrollments;
 
-    public Course(String name) { this.name = name; }
+    public Course(String name) {
+        this.name = name;
+        this.activities = new ArrayList<CourseActivity>();
+        this.enrollments = new ArrayList<Enrollment>();
+    }
 
     public String getCourseName() {
         return this.name;
@@ -50,7 +42,7 @@ public class Course {
         return sum;
     }
 
-    public boolean containsActivityType(CourseActivity activity) {
+    private boolean containsActivityType(CourseActivity activity) {
         String type = activity.getType();
         for(CourseActivity ca : activities){
             if(ca.getType().equals(type)) return true;
@@ -73,6 +65,9 @@ public class Course {
         return sum;
     }
 
+    public String calculateTermGrade() throws MarkException {
+        return new Mark(this.calculateTermMark()).getGrade();
+    }
 
     public void enroll(Student student) {
         Enrollment enrollment = new Enrollment(this, student);
@@ -95,6 +90,4 @@ public class Course {
         }
         return null;
     }
-
-
 }

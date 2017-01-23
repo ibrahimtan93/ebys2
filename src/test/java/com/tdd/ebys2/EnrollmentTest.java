@@ -17,7 +17,6 @@ public class EnrollmentTest {
         Enrollment enrollment = new Enrollment(course, student);
 
         assertTrue("Failed to create enrollment",enrollment instanceof Enrollment);
-        verify(student).addEnrollment(enrollment);
     }
 
 
