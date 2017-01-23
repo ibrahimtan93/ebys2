@@ -10,6 +10,7 @@ public class Student {
     private int number;
     private String name;
     private String surname;
+    private ArrayList<Enrollment> enrollments = new ArrayList<Enrollment>();
 
     public Student(int number, String name, String surname) {
         this.number = number;
@@ -40,5 +41,9 @@ public class Student {
 
     public String getSurname() {
         return surname;
+    }
+
+    public void addEnrollment(Enrollment enrollment) {
+        enrollments.add(enrollment);
     }
 }

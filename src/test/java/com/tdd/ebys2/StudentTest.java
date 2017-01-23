@@ -23,7 +23,7 @@ public class StudentTest {
     }
 
     //**************************************** Test Methods *************************************
-    @Test
+    /*@Test
     public void enrollmentTest(){
         //Exercise
         student.enroll(course);
@@ -31,7 +31,8 @@ public class StudentTest {
         //Verification..
         assertEquals("Failed to enroll Student to a Course.", 1, student.getCourses().size());
     }
-
+    */
+    /*
     @Test
     public void isEnrolledTest() throws Exception {
         //Exercise..
@@ -41,4 +42,5 @@ public class StudentTest {
         //Verify..
         assertTrue("Failed to check if the student is enrolled to a course.", student.isEnrolled(course));
     }
+    */
 }

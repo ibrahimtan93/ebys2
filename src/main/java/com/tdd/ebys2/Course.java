@@ -23,6 +23,7 @@ public class Course {
     private Teacher teacher;
     private ArrayList<CourseActivity> activities = new ArrayList();
     private ArrayList<Student> enrolledStudents = new ArrayList<Student> ();
+    private ArrayList<Enrollment> enrollments = new ArrayList<Enrollment>();
 
     public Course(String name) { this.name = name; }
 
@@ -86,5 +87,9 @@ public class Course {
             if(s.getNumber() == number) return s;
         }
         return null;
+    }
+
+    public void addEnrollment(Enrollment enrollment) {
+        enrollments.add(enrollment);
     }
 }

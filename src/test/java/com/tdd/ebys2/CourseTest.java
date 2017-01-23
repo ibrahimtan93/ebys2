@@ -102,7 +102,8 @@ public class CourseTest {
     //TODO Enrolling multiple students to course
     //---TODO Need identifier for students for selecting a student from the list
     //---TODO Need other identifier for students such as school number for uniqueness.
-    @Test
+    //TODO What about giving notes to more than one students? We need intermediary object.
+    /*@Test
     public void enrollStudentTest() {
         //Fixture setup..
         Student student = mock(Student.class);
@@ -119,6 +120,8 @@ public class CourseTest {
         assertEquals("Failed to get student from the enrolled student list", student, course.getEnrolledStudent(student.getNumber()));
         assertEquals("Failed to get student from the enrolled student list", student2, course.getEnrolledStudent(student2.getNumber()));
     }
+
+*/
 
 /*
     @Test
