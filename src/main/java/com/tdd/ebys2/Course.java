@@ -1,9 +1,6 @@
 package com.tdd.ebys2;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
@@ -25,6 +22,7 @@ public class Course {
     private final String name;
     private Teacher teacher;
     private ArrayList<CourseActivity> activities = new ArrayList();
+    private ArrayList<Student> enrolledStudents = new ArrayList<Student> ();
 
     public Course(String name) { this.name = name; }
 
@@ -75,4 +73,11 @@ public class Course {
     }
 
 
+    public void enroll(Student student) {
+        this.enrolledStudents.add(student);
+    }
+
+    public ArrayList<Student> getEnrolledStudents(){
+        return this.enrolledStudents;
+    }
 }

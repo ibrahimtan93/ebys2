@@ -12,7 +12,7 @@ public class Student {
 
     public void enroll(Course course) throws NullPointerException{
         if (course == null) throw new NullPointerException("Course is not defined.");
-
+        course.enroll(this);
         this.courses.add(course);
     }
 

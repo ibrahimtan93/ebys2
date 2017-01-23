@@ -97,6 +97,19 @@ public class CourseTest {
         assertEquals("Failed to calculate Course's term mark.", 92,
                 course.calculateTermMark(), 0.02);
     }
+
+    //TODO List for keeping track of enrolled students to the course
+    @Test
+    public void enrollStudentTest() {
+        //Fixture setup..
+        Student student = new Student();
+
+        //Exercise..
+        course.enroll(student);
+
+        //Verify..
+        assertEquals("Failed to enroll student to Course.", 1, course.getEnrolledStudents().size());
+    }
 /*
     @Test
     public void calculateTermGradeTest() throws CourseActivityException {
