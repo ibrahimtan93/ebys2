@@ -98,18 +98,28 @@ public class CourseTest {
                 course.calculateTermMark(), 0.02);
     }
 
-    //TODO List for keeping track of enrolled students to the course
+    //TODO List for keeping track of enrolled students to the course #
+    //TODO Enrolling multiple students to course
+    //---TODO Need identifier for students for selecting a student from the list
+    //---TODO Need other identifier for students such as school number for uniqueness.
     @Test
     public void enrollStudentTest() {
         //Fixture setup..
-        Student student = new Student();
+        Student student = mock(Student.class);
+        when(student.getNumber()).thenReturn(anyInt());
+        Student student2 = mock(Student.class);
+        when(student2.getNumber()).thenReturn(anyInt());
 
         //Exercise..
         course.enroll(student);
+        course.enroll(student2);
 
         //Verify..
-        assertEquals("Failed to enroll student to Course.", 1, course.getEnrolledStudents().size());
+        assertEquals("Failed to enroll student to Course.", 2, course.getEnrolledStudents().size());
+        assertEquals("Failed to get student from the enrolled student list", student, course.getEnrolledStudent(student.getNumber()));
+        assertEquals("Failed to get student from the enrolled student list", student2, course.getEnrolledStudent(student2.getNumber()));
     }
+
 /*
     @Test
     public void calculateTermGradeTest() throws CourseActivityException {

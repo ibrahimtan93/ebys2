@@ -80,4 +80,11 @@ public class Course {
     public ArrayList<Student> getEnrolledStudents(){
         return this.enrolledStudents;
     }
+
+    public Student getEnrolledStudent(int number) {
+        for (Student s : enrolledStudents) {
+            if(s.getNumber() == number) return s;
+        }
+        return null;
+    }
 }
