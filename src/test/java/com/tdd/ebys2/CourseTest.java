@@ -17,52 +17,15 @@ public class CourseTest {
     //TODO Needs Mark/grade class
     //**************************************** Fixture *************************************
     private Course course;
-    private CourseActivity activityMidterm;
-    private CourseActivity activityFinal;
 
     @Before
     public void setup(){
         //Fixture setup..
         course = new Course("TDD");
-        activityMidterm = CourseActivity.MIDTERMEXAM(40);
-        activityFinal= CourseActivity.FINALEXAM(60);
+
     }
 
     //**************************************** Verification *************************************
-    @Test
-    public void addActivityTest() throws CourseActivityException {
-        //Fixture setup..
-        course.addActivity(activityMidterm);
-
-        //Verification..
-        assertEquals("Failed to add CourseActivity to Course.", activityMidterm, course.getActivity("MidtermExam"));
-    }
-
-    @Test
-    public void addActivityTest_sameActivityException() {
-        //Verification..
-        try{
-            course.addActivity(activityMidterm);
-            course.addActivity(activityMidterm);
-            fail("Failed to throw exception when trying to add same CourseActivity object to Course more than once.");
-        }
-        catch (Exception e){
-            assertTrue(e instanceof CourseActivityException);
-        }
-    }
-
-    @Test
-    public void addActivityTest_percentageException() {
-        //Verification..
-        try{
-            course.addActivity(activityFinal);
-            course.addActivity(activityFinal);
-            fail("Failed to throw CourseActivityException when trying to add activities whose percentage sum excels 100.");
-        }
-        catch (Exception e){
-            assertTrue(e instanceof CourseActivityException);
-        }
-    }
 
     @Test
     public void assignTeacherToCourse(){
@@ -74,42 +37,6 @@ public class CourseTest {
         assertEquals("Failed to assign Teacher to Course.", teacher,course.getTeacher());
     }
 
-    @Test
-    public void viewCourseActivityMarkTest() throws CourseActivityException, MarkException {
-        //Fixture setup..
-        activityMidterm.setMark(50);
-        course.addActivity(activityMidterm);
-
-        //Verification..
-        assertEquals("Failed to view CourseActivity mark.",50,
-                course.getActivity("MidtermExam").getMark(), 0.02);
-    }
-
-    @Test
-    public void calculateTermMarkTest() throws CourseActivityException, MarkException {
-        //Fixture setup..
-        activityMidterm.setMark(80);
-        activityFinal.setMark(100);
-        course.addActivity(activityMidterm);
-        course.addActivity(activityFinal);
-
-        //Verification..
-        assertEquals("Failed to calculate Course's term mark.", 92,
-                course.calculateTermMark(), 0.02);
-    }
-
-    @Test
-    public void calculateTermGradeTest() throws CourseActivityException, MarkException {
-        //Fixture setup..
-        activityMidterm.setMark(80);
-        activityFinal.setMark(100);
-        course.addActivity(activityMidterm);
-        course.addActivity(activityFinal);
-
-        //Verification..
-        assertEquals("Failed to calculate correct Grade letter for the Term Mark.",
-                "AA", course.calculateTermGrade());
-    }
 
     @Test
     public void enrollTest() {
