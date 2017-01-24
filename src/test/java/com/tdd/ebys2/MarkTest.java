@@ -30,7 +30,6 @@ public class MarkTest {
 
     @Test
     public void checkMarkRangeTest(){
-
         try{
             Mark mark = new Mark(-5);
             Mark mark2 = new Mark(110);

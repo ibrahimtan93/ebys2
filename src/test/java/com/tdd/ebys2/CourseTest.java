@@ -27,12 +27,23 @@ public class CourseTest {
 
     //**************************************** Verification *************************************
     @Test
+    public void assignTeacherToCourse(){
+        //Fixture setup..
+        Teacher teacher = mock(Teacher.class);
+        course.setTeacher(teacher);
+
+        //Verification..
+        assertEquals("Failed to assign Teacher to Course.", teacher,course.getTeacher());
+    }
+
+    @Test
     public void addActivityTest() throws CourseActivityException {
         //Fixture setup..
         course.addActivity(activityMidterm);
 
         //Verification..
-        assertEquals("Failed to add CourseActivity to Course.", activityMidterm, course.getActivity(ActivityTypes.MIDTERMEXAM));
+        assertEquals("Failed to add CourseActivity to Course.",
+                activityMidterm, course.getActivity(ActivityTypes.MIDTERMEXAM));
     }
 
     @Test
@@ -59,53 +70,6 @@ public class CourseTest {
         catch (Exception e){
             assertTrue(e instanceof CourseActivityException);
         }
-    }
-
-    @Test
-    public void assignTeacherToCourse(){
-        //Fixture setup..
-        Teacher teacher = mock(Teacher.class);
-        course.setTeacher(teacher);
-
-        //Verification..
-        assertEquals("Failed to assign Teacher to Course.", teacher,course.getTeacher());
-    }
-
-    @Test
-    public void viewCourseActivityMarkTest() throws CourseActivityException, MarkException {
-        //Fixture setup..
-        activityMidterm.setMark(50);
-        course.addActivity(activityMidterm);
-
-        //Verification..
-        assertEquals("Failed to view CourseActivity mark.",50,
-                course.getActivity(ActivityTypes.MIDTERMEXAM).getMark(), 0.02);
-    }
-
-    @Test
-    public void calculateTermMarkTest() throws CourseActivityException, MarkException {
-        //Fixture setup..
-        activityMidterm.setMark(80);
-        activityFinal.setMark(100);
-        course.addActivity(activityMidterm);
-        course.addActivity(activityFinal);
-
-        //Verification..
-        assertEquals("Failed to calculate Course's term mark.", 92,
-                course.calculateTermMark(), 0.02);
-    }
-
-    @Test
-    public void calculateTermGradeTest() throws CourseActivityException, MarkException {
-        //Fixture setup..
-        activityMidterm.setMark(80);
-        activityFinal.setMark(100);
-        course.addActivity(activityMidterm);
-        course.addActivity(activityFinal);
-
-        //Verification..
-        assertEquals("Failed to calculate correct Grade letter for the Term Mark.",
-                "AA", course.calculateTermGrade());
     }
 
     @Test

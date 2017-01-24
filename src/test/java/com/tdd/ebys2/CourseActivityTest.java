@@ -16,12 +16,4 @@ public class CourseActivityTest {
         //Verify..
         assertTrue("Failed to create CourseActivity object.", activity instanceof CourseActivity);
     }
-
-    @Test
-    public void courseActivityMarkTest() throws MarkException {
-        CourseActivity activity = new CourseActivity(ActivityTypes.MIDTERMEXAM, 40);
-        activity.setMark(60);
-
-        assertEquals("Failed to set mark of the activity.", 60, activity.getMark(), 0.02);
-    }
 }

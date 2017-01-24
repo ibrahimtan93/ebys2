@@ -45,7 +45,7 @@ public class Course {
     private boolean containsActivityType(CourseActivity activity) {
         ActivityTypes type = activity.getType();
         for(CourseActivity ca : activities){
-            if(ca.getType().equals(type)) return true;
+            if(ca.getType() == type) return true;
         }
         return false;
     }
@@ -55,18 +55,6 @@ public class Course {
             if(ca.getType() == activityType) return ca;
         }
         return null;
-    }
-
-    public float calculateTermMark() {
-        float sum = 0;
-        for(CourseActivity ca : activities){
-            sum += (ca.getMark() * ca.getPercentage())/100;
-        }
-        return sum;
-    }
-
-    public String calculateTermGrade() throws MarkException {
-        return new Mark(this.calculateTermMark()).getGrade();
     }
 
     public void enroll(Student student) {

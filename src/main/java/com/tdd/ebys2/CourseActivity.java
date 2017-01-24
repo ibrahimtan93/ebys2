@@ -5,9 +5,9 @@ package com.tdd.ebys2;
  */
 public class CourseActivity {
 
+    //TODO Need to remove mark object from course activity
     private final ActivityTypes activityType;
     private final int percentage;
-    private Mark mark;
 
     public CourseActivity(ActivityTypes activityType, int percentage) {
         this.activityType = activityType;
@@ -18,13 +18,5 @@ public class CourseActivity {
 
     public int getPercentage() {
         return percentage;
-    }
-
-    public void setMark(float mark) throws MarkException {
-        this.mark = new Mark(mark);
-    }
-
-    public float getMark() {
-        return this.mark.getMark();
     }
 }
