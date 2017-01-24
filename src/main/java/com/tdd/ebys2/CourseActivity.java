@@ -3,15 +3,21 @@ package com.tdd.ebys2;
 /**
  * Created by darthvader on 07.12.2016.
  */
-public abstract class CourseActivity {
+public class CourseActivity {
 
+    private final ActivityTypes activityType;
     private final int percentage;
-    private final String type;
     private Mark mark;
 
-    public CourseActivity(int percentage, String type) {
+    public CourseActivity(ActivityTypes activityType, int percentage) {
+        this.activityType = activityType;
         this.percentage = percentage;
-        this.type = type;
+    }
+
+    public ActivityTypes getType() { return activityType; }
+
+    public int getPercentage() {
+        return percentage;
     }
 
     public void setMark(float mark) throws MarkException {
@@ -20,31 +26,5 @@ public abstract class CourseActivity {
 
     public float getMark() {
         return this.mark.getMark();
-    }
-
-    public int getPercentage() {
-        return percentage;
-    }
-
-    public String getType() { return type; }
-
-    public static FinalExam FINALEXAM(int percentage){
-        return new FinalExam(percentage);
-    }
-
-    public static MidtermExam MIDTERMEXAM(int percentage){
-        return new MidtermExam(percentage);
-    }
-
-    public static Homework HOMEWORK(int percentage){
-        return new Homework(percentage);
-    }
-
-    public static Presentation PRESENTATION(int percentage){
-        return new Presentation(percentage);
-    }
-
-    public static Project PROJECT(int percentage){
-        return new Project(percentage);
     }
 }

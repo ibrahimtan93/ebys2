@@ -18,8 +18,4 @@ public class EnrollmentTest {
 
         assertTrue("Failed to create enrollment",enrollment instanceof Enrollment);
     }
-
-
-
-
 }

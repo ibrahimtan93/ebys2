@@ -21,8 +21,8 @@ public class CourseTest {
     public void setup(){
         //Fixture setup..
         course = new Course("TDD");
-        activityMidterm = CourseActivity.MIDTERMEXAM(40);
-        activityFinal= CourseActivity.FINALEXAM(60);
+        activityMidterm = new CourseActivity(ActivityTypes.MIDTERMEXAM, 40);
+        activityFinal= new CourseActivity(ActivityTypes.FINALEXAM, 60);
     }
 
     //**************************************** Verification *************************************
@@ -32,7 +32,7 @@ public class CourseTest {
         course.addActivity(activityMidterm);
 
         //Verification..
-        assertEquals("Failed to add CourseActivity to Course.", activityMidterm, course.getActivity("MidtermExam"));
+        assertEquals("Failed to add CourseActivity to Course.", activityMidterm, course.getActivity(ActivityTypes.MIDTERMEXAM));
     }
 
     @Test
@@ -79,7 +79,7 @@ public class CourseTest {
 
         //Verification..
         assertEquals("Failed to view CourseActivity mark.",50,
-                course.getActivity("MidtermExam").getMark(), 0.02);
+                course.getActivity(ActivityTypes.MIDTERMEXAM).getMark(), 0.02);
     }
 
     @Test

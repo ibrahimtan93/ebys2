@@ -43,16 +43,16 @@ public class Course {
     }
 
     private boolean containsActivityType(CourseActivity activity) {
-        String type = activity.getType();
+        ActivityTypes type = activity.getType();
         for(CourseActivity ca : activities){
             if(ca.getType().equals(type)) return true;
         }
         return false;
     }
 
-    public CourseActivity getActivity(String activityType) {
+    public CourseActivity getActivity(ActivityTypes activityType) {
         for (CourseActivity ca : activities){
-            if(ca.getType().equals(activityType)) return ca;
+            if(ca.getType() == activityType) return ca;
         }
         return null;
     }
@@ -60,7 +60,7 @@ public class Course {
     public float calculateTermMark() {
         float sum = 0;
         for(CourseActivity ca : activities){
-            sum += (float)(ca.getMark() * ca.getPercentage())/100;
+            sum += (ca.getMark() * ca.getPercentage())/100;
         }
         return sum;
     }
