@@ -32,7 +32,7 @@ public class CourseTest {
         course.addActivity(activityMidterm);
 
         //Verification..
-        assertTrue("Failed to add CourseActivity to Course.", course.containsActivityType(activityMidterm));
+        assertEquals("Failed to add CourseActivity to Course.", activityMidterm, course.getActivity("MidtermExam"));
     }
 
     @Test
@@ -72,7 +72,7 @@ public class CourseTest {
     }
 
     @Test
-    public void viewCourseActivityMarkTest() throws CourseActivityException {
+    public void viewCourseActivityMarkTest() throws CourseActivityException, MarkException {
         //Fixture setup..
         activityMidterm.setMark(50);
         course.addActivity(activityMidterm);
@@ -83,7 +83,7 @@ public class CourseTest {
     }
 
     @Test
-    public void calculateTermMarkTest() throws CourseActivityException {
+    public void calculateTermMarkTest() throws CourseActivityException, MarkException {
         //Fixture setup..
         activityMidterm.setMark(80);
         activityFinal.setMark(100);
@@ -96,7 +96,7 @@ public class CourseTest {
     }
 
     @Test
-    public void calculateTermGradeTest() throws CourseActivityException {
+    public void calculateTermGradeTest() throws CourseActivityException, MarkException {
         //Fixture setup..
         activityMidterm.setMark(80);
         activityFinal.setMark(100);
@@ -108,4 +108,15 @@ public class CourseTest {
                 "AA", course.calculateTermGrade());
     }
 
+    @Test
+    public void enrollTest() {
+        //Fixture setup..
+        Student student = mock(Student.class);
+
+        //Exercise..
+        course.enroll(student);
+
+        //Verify..
+        assertEquals("Failed to add Enrollment to Course.", 1, course.getEnrolledStudents().size());
+    }
 }

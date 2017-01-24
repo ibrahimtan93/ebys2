@@ -27,7 +27,7 @@ public class CourseActivityTest {
     }
 
     @Test
-    public void courseActivityMarkTest(){
+    public void courseActivityMarkTest() throws MarkException {
         CourseActivity activity = CourseActivity.MIDTERMEXAM(40);
         activity.setMark(60);
 

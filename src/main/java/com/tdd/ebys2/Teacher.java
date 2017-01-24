@@ -9,23 +9,15 @@ public class Teacher {
     private final String name;
     private ArrayList<Course> courses = new ArrayList<Course>();
 
-    public ArrayList<Course> getCourses() {
-        return this.courses;
-    }
-
     public Teacher(String name) {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
+    public ArrayList<Course> getCourses() {
+        return this.courses;
     }
 
     public void addCourse(Course course) {
         courses.add(course);
-    }
-
-    public boolean hasCourse(Course course) {
-        return courses.contains(course);
     }
 }

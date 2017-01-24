@@ -1,9 +1,6 @@
 package com.tdd.ebys2;
 
-import org.junit.Test;
-
 import java.util.ArrayList;
-import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
@@ -13,9 +10,14 @@ import static org.junit.Assert.assertTrue;
 public class Course {
     private final String name;
     private Teacher teacher;
-    private ArrayList<CourseActivity> activities = new ArrayList();
+    private ArrayList<CourseActivity> activities;
+    private ArrayList<Enrollment> enrollments;
 
-    public Course(String name) { this.name = name; }
+    public Course(String name) {
+        this.name = name;
+        this.activities = new ArrayList<CourseActivity>();
+        this.enrollments = new ArrayList<Enrollment>();
+    }
 
     public String getCourseName() {
         return this.name;
@@ -40,7 +42,7 @@ public class Course {
         return sum;
     }
 
-    public boolean containsActivityType(CourseActivity activity) {
+    private boolean containsActivityType(CourseActivity activity) {
         String type = activity.getType();
         for(CourseActivity ca : activities){
             if(ca.getType().equals(type)) return true;
@@ -63,17 +65,29 @@ public class Course {
         return sum;
     }
 
-    public String calculateTermGrade() {
-        float mark = this.calculateTermMark();
-        if((mark >= 0) && (mark <= 38)) return "FF";
-        else if (mark<=45) return "FD";
-        else if (mark<=52) return "DD";
-        else if (mark<=59) return "DC";
-        else if (mark<=66) return "CC";
-        else if (mark<=73) return "CB";
-        else if (mark<=80) return "BB";
-        else if (mark<=87) return "BA";
-        else if (mark<=100) return "AA";
-        else return null;
+    public String calculateTermGrade() throws MarkException {
+        return new Mark(this.calculateTermMark()).getGrade();
+    }
+
+    public void enroll(Student student) {
+        Enrollment enrollment = new Enrollment(this, student);
+        enrollments.add(enrollment);
+        student.addEnrollment(enrollment);
+    }
+
+    public ArrayList<Student> getEnrolledStudents(){
+        ArrayList<Student> students = new ArrayList<Student>();
+        for (Enrollment e: enrollments){
+            students.add(e.getStudent());
+        }
+
+        return students;
+    }
+
+    public Student getEnrolledStudent(int number) {
+        for (Enrollment e: enrollments){
+            if(e.getStudent().getNumber() == number) return e.getStudent();
+        }
+        return null;
     }
 }

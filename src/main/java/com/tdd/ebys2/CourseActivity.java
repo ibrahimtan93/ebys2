@@ -7,19 +7,19 @@ public abstract class CourseActivity {
 
     private final int percentage;
     private final String type;
-    private float mark;
+    private Mark mark;
 
     public CourseActivity(int percentage, String type) {
         this.percentage = percentage;
         this.type = type;
     }
 
-    public void setMark(int mark) {
-        this.mark = mark;
+    public void setMark(float mark) throws MarkException {
+        this.mark = new Mark(mark);
     }
 
-    public double getMark() {
-        return mark;
+    public float getMark() {
+        return this.mark.getMark();
     }
 
     public int getPercentage() {
