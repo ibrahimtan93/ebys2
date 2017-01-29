@@ -1,4 +1,8 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Enrollment;
+
+import com.tdd.ebys2.Course.Course;
+import com.tdd.ebys2.Course.CourseActivity;
+import com.tdd.ebys2.Student;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,13 +31,13 @@ public class Enrollment {
         return course;
     }
 
-    public void setActivityMark(CourseActivity activity, Mark mark) {
-        if(!this.activityMarkMap.containsKey(activity))
-            this.activityMarkMap.put(activity, mark);
+    public void setActivityMark(CourseActivity activity, Mark mark) throws MarkException {
+        this.activityMarkMap.put(activity, mark);
     }
 
     public Mark getActivityMark(CourseActivity activity) {
-        if(this.activityMarkMap.containsKey(activity)) return this.activityMarkMap.get(activity);
+        if(this.activityMarkMap.containsKey(activity))
+            return this.activityMarkMap.get(activity);
         return null;
     }
 
