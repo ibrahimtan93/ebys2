@@ -1,4 +1,7 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Student;
+
+import com.tdd.ebys2.Course.Course;
+import com.tdd.ebys2.Enrollment;
 
 import java.util.ArrayList;
 

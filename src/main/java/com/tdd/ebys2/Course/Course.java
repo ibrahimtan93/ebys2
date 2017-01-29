@@ -27,7 +27,9 @@ public class Course {
         return this.teacher;
     }
 
-    public void setTeacher(Teacher teacher) { this.teacher = teacher; }
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public void addActivity(CourseActivity activity) throws  CourseActivityException {
         if(this.containsActivityType(activity)) throw new CourseActivityException("Same type of CourseActivity Object");

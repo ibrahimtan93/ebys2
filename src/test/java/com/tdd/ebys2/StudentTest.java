@@ -1,12 +1,14 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Student;
 
+import com.tdd.ebys2.Course.Course;
+import com.tdd.ebys2.Enrollment.Enrollment;
+import com.tdd.ebys2.Student;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * Created by darthvader on 07.12.2016.

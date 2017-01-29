@@ -1,11 +1,15 @@
 package com.tdd.ebys2;
 
-import org.junit.Assert;
+import com.tdd.ebys2.Course.ActivityTypes;
+import com.tdd.ebys2.Course.Course;
+import com.tdd.ebys2.Course.CourseActivity;
+import com.tdd.ebys2.Course.CourseException;
+import com.tdd.ebys2.Student.Student;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
-import static org.mockito.AdditionalMatchers.*;
+
 /**
  * Created by prometheus on 1/24/17.
  */
@@ -59,7 +63,7 @@ public class EnrollmentTest {
     }
 
     @Test
-    public void calculateTermGradeTest() throws CourseActivityException, MarkException {
+    public void calculateTermGradeTest() throws CourseException, MarkException {
         //Setup..
         when(course.getActivity(ActivityTypes.MIDTERMEXAM))
                 .thenReturn(new CourseActivity(ActivityTypes.MIDTERMEXAM, 40));

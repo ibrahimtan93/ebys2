@@ -30,10 +30,13 @@ public class CourseTest {
     public void assignTeacherToCourse(){
         //Fixture setup..
         Teacher teacher = mock(Teacher.class);
+
+        //Exercise..
         course.setTeacher(teacher);
 
         //Verification..
         assertEquals("Failed to assign Teacher to Course.", teacher,course.getTeacher());
+        verify(teacher).addCourse(course); //verify that the Course is added to Teacher's CourseList
     }
 
     @Test
