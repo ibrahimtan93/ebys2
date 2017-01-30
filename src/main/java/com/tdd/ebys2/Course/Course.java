@@ -1,4 +1,7 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Course;
+
+import com.tdd.ebys2.Enrollment.Enrollment;
+import com.tdd.ebys2.Teacher;
 
 import java.util.ArrayList;
 
@@ -8,16 +11,20 @@ import static org.junit.Assert.assertTrue;
  * Created by darthvader on 07.12.2016.
  */
 public class Course {
+    private final int ID;
     private final String name;
     private Teacher teacher;
     private ArrayList<CourseActivity> activities;
     private ArrayList<Enrollment> enrollments;
 
-    public Course(String name) {
+    public Course(int id, String name) {
+        this.ID = id;
         this.name = name;
         this.activities = new ArrayList<CourseActivity>();
         this.enrollments = new ArrayList<Enrollment>();
     }
+
+    public int getID() { return ID; }
 
     public String getCourseName() {
         return this.name;
@@ -31,25 +38,9 @@ public class Course {
         this.teacher = teacher;
     }
 
-    public void addActivity(CourseActivity activity) throws  CourseActivityException {
-        if(this.containsActivityType(activity)) throw new CourseActivityException("Same type of CourseActivity Object");
-        if(this.activityPercentageSum() + activity.getPercentage() > 100)
-            throw new CourseActivityException("CourseActivity percentage sum is more than 100");
-        this.activities.add(activity);
-    }
 
-    private int activityPercentageSum() {
-        int sum = 0;
-        for(CourseActivity ca : activities) sum += ca.getPercentage();
-        return sum;
-    }
-
-    private boolean containsActivityType(CourseActivity activity) {
-        ActivityTypes type = activity.getType();
-        for(CourseActivity ca : activities){
-            if(ca.getType() == type) return true;
-        }
-        return false;
+    public ArrayList<CourseActivity> getActivities() {
+        return activities;
     }
 
     public CourseActivity getActivity(ActivityTypes activityType) {
@@ -59,25 +50,28 @@ public class Course {
         return null;
     }
 
-    public void enroll(Student student) {
-        Enrollment enrollment = new Enrollment(this, student);
-        enrollments.add(enrollment);
-        student.addEnrollment(enrollment);
+    public void addActivity(CourseActivity activity) throws CourseException {
+        if(this.getActivity(activity.getType()) !=  null)
+            throw new CourseException("Same type of CourseActivity Object.");
+        if(this.activityPercentageSum() + activity.getPercentage() > 100)
+            throw new CourseException("CourseActivity percentage sum is more than 100.");
+        this.activities.add(activity);
     }
 
-    public ArrayList<Student> getEnrolledStudents(){
-        ArrayList<Student> students = new ArrayList<Student>();
-        for (Enrollment e: enrollments){
-            students.add(e.getStudent());
-        }
-
-        return students;
+    private int activityPercentageSum() {
+        int sum = 0;
+        for(CourseActivity ca : activities) sum += ca.getPercentage();
+        return sum;
     }
 
-    public Student getEnrolledStudent(int number) {
-        for (Enrollment e: enrollments){
-            if(e.getStudent().getNumber() == number) return e.getStudent();
-        }
-        return null;
+
+    public ArrayList<Enrollment> getEnrollments() {
+        return enrollments;
     }
+
+    public void addEnrollment(Enrollment enrollment) {
+        this.enrollments.add(enrollment);
+    }
+
+
 }

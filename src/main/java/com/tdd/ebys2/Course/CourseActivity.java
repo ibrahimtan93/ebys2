@@ -1,11 +1,9 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Course;
 
 /**
  * Created by darthvader on 07.12.2016.
  */
 public class CourseActivity {
-
-    //TODO Need to remove mark object from course activity
     private final ActivityTypes activityType;
     private final int percentage;
 

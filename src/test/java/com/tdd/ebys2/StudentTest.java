@@ -1,4 +1,4 @@
-package com.tdd.ebys2.Student;
+package com.tdd.ebys2;
 
 import com.tdd.ebys2.Course.Course;
 import com.tdd.ebys2.Enrollment.Enrollment;
@@ -26,12 +26,21 @@ public class StudentTest {
 
     //**************************************** Test Methods *************************************
     @Test
+    public void getNameTest() {
+        //Setup
+        String expectedName = "Murat Can";
+
+        //Verify
+        assertEquals("Failed to get name of Student.", expectedName, student.getName());
+    }
+
+    @Test
     public void addEnrollmentTest(){
         //Fixture Setup
-        Enrollment enrol = new Enrollment(course, student);
+        Enrollment enrollment = mock(Enrollment.class);
 
         //Exercise
-        student.addEnrollment(enrol);
+        student.addEnrollment(enrollment);
 
         //Verification..
         assertEquals("Failed to add Enrollment to the Student.", 1, student.getEnrollments().size());

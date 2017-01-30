@@ -1,4 +1,4 @@
-package com.tdd.ebys2.Teacher;
+package com.tdd.ebys2;
 
 import com.tdd.ebys2.Course.Course;
 

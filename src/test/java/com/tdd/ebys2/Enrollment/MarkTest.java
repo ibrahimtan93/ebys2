@@ -1,9 +1,7 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Enrollment;
 
-import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
 
 /**
  * Created by prometheus on 1/23/17.

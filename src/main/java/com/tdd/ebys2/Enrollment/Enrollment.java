@@ -31,7 +31,7 @@ public class Enrollment {
         return course;
     }
 
-    public void setActivityMark(CourseActivity activity, Mark mark) throws MarkException {
+    public void setActivityMark(CourseActivity activity, Mark mark) {
         this.activityMarkMap.put(activity, mark);
     }
 

@@ -1,4 +1,4 @@
-package com.tdd.ebys2;
+package com.tdd.ebys2.Course;
 
 /**
  * Created by darthvader on 24.01.2017.
