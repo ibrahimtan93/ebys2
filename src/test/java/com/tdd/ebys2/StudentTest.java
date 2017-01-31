@@ -1,12 +1,14 @@
 package com.tdd.ebys2;
 
+import com.tdd.ebys2.Course.Course;
+import com.tdd.ebys2.Enrollment.Enrollment;
+import com.tdd.ebys2.Student;
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.mock;
 
 /**
  * Created by darthvader on 07.12.2016.
@@ -24,12 +26,21 @@ public class StudentTest {
 
     //**************************************** Test Methods *************************************
     @Test
+    public void getNameTest() {
+        //Setup
+        String expectedName = "Murat Can";
+
+        //Verify
+        assertEquals("Failed to get name of Student.", expectedName, student.getName());
+    }
+
+    @Test
     public void addEnrollmentTest(){
         //Fixture Setup
-        Enrollment enrol = new Enrollment(course, student);
+        Enrollment enrollment = mock(Enrollment.class);
 
         //Exercise
-        student.addEnrollment(enrol);
+        student.addEnrollment(enrollment);
 
         //Verification..
         assertEquals("Failed to add Enrollment to the Student.", 1, student.getEnrollments().size());

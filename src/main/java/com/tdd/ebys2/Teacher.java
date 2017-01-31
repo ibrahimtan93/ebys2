@@ -1,5 +1,7 @@
 package com.tdd.ebys2;
 
+import com.tdd.ebys2.Course.Course;
+
 import java.util.ArrayList;
 
 /**
@@ -15,9 +17,5 @@ public class Teacher {
 
     public ArrayList<Course> getCourses() {
         return this.courses;
-    }
-
-    public void addCourse(Course course) {
-        courses.add(course);
     }
 }

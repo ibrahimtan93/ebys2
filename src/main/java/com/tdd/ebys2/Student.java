@@ -1,5 +1,8 @@
 package com.tdd.ebys2;
 
+import com.tdd.ebys2.Course.Course;
+import com.tdd.ebys2.Enrollment.Enrollment;
+
 import java.util.ArrayList;
 
 /**
@@ -20,6 +23,10 @@ public class Student {
         return this.number;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public void addEnrollment(Enrollment enrollment) {
         enrollments.add(enrollment);
     }
@@ -32,4 +39,5 @@ public class Student {
         }
         return false;
     }
+
 }
